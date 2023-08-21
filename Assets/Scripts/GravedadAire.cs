@@ -8,7 +8,7 @@ public class GravedadAire : MonoBehaviour
     public float gravedadAgua = 0.1f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerController>())
+        if (!collision.GetComponent<ControladorBarco>()) //esta feo que se controle asi pero por ahora funciona
         {
             collision.GetComponent<Rigidbody2D>().gravityScale = gravedadAire;
         }
@@ -16,7 +16,7 @@ public class GravedadAire : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<Rigidbody2D>() != null)
+        if (!collision.GetComponent<ControladorBarco>())
             collision.GetComponent<Rigidbody2D>().gravityScale = gravedadAgua;
     }
 
