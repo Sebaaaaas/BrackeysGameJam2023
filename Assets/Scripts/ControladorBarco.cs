@@ -23,7 +23,7 @@ public class ControladorBarco : MonoBehaviour
 
     public KeyCode keyCodeLEFT;
     public KeyCode keyCodeRIGHT;
-    public KeyCode keyCodeSPACE;
+    public KeyCode keyCodeTOFROMBOAT;
 
     #endregion Controles
 
@@ -40,7 +40,7 @@ public class ControladorBarco : MonoBehaviour
         else if (Input.GetKey(keyCodeRIGHT))
             direccion.x = 1;
 
-        if(Input.GetKeyDown(keyCodeSPACE))
+        if(Input.GetKeyDown(keyCodeTOFROMBOAT))
             if(proximoABarco && !jugadorEnBarco)
                 SubirJugadorABarco();
             else if (jugadorEnBarco)
@@ -79,7 +79,7 @@ public class ControladorBarco : MonoBehaviour
         jugador.GetComponent<Rigidbody2D>().isKinematic = true;
         jugador.transform.parent = transform;
         jugador.transform.position = transform.position;
-
+        jugador.GetComponent<PlayerController>().setNadando(false);
 
         jugadorEnBarco = true;
     }
@@ -90,6 +90,7 @@ public class ControladorBarco : MonoBehaviour
         jugador.GetComponent<Rigidbody2D>().isKinematic = false;
         jugador.transform.position.Set(transform.position.x, transform.position.y - 5, transform.position.z);
         jugador.transform.parent = null;
+        jugador.GetComponent<PlayerController>().setNadando(true);
 
         jugadorEnBarco = false;
     }
