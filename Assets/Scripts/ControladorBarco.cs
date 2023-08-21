@@ -51,7 +51,7 @@ public class ControladorBarco : MonoBehaviour
     private void FixedUpdate()
     {
         if(jugadorEnBarco)
-            rb2d.AddForce(direccion.normalized * velocidad);
+            rb2d.AddForce(direccion.normalized * velocidad * Time.deltaTime);
 
         if (rb2d.velocity.magnitude > maxVel)
             rb2d.velocity = rb2d.velocity.normalized * maxVel;
@@ -86,7 +86,6 @@ public class ControladorBarco : MonoBehaviour
 
     private void BajarJugadorDeBarco()
     {
-        Debug.Log("bajando");
         jugador.GetComponent<Rigidbody2D>().isKinematic = false;
         jugador.transform.position.Set(transform.position.x, transform.position.y - 5, transform.position.z);
         jugador.transform.parent = null;
