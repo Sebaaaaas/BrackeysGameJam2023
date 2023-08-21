@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb2d;
 
+    public float tiempoOxigenoTanque;
+
     [SerializeField] float tiempoEntreDisparos = 1.0f;
     float tiempoUltimoDisparo = 0.0f;
     public GameObject arpon;

@@ -19,4 +19,13 @@ public class Arpon : MonoBehaviour
         if(Time.time > tiempoCreacion + tiempoDeVida)
             Destroy(gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<ControladorEnemigo>()){
+            Debug.Log("doink");
+
+            collision.GetComponent<ControladorEnemigo>().RecibeDanio();
+        }
+    }
 }
