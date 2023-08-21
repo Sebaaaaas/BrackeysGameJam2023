@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     bool nadando = true;
+
     Rigidbody2D rb2d;
 
     #region VariablesNadar
 
     Vector2 direccion;
     public float velocidad = 1.0f;
-    public float maxSpeed = 5.0f;
+    public float maxVel = 5.0f;
 
     #endregion VariablesNadar
 
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public KeyCode keyCodeDOWN;
     public KeyCode keyCodeLEFT;
     public KeyCode keyCodeRIGHT;
+    public KeyCode keyCodeSPACE;
+
 
     #endregion Controles
 
@@ -45,16 +48,17 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKey(keyCodeRIGHT))
             direccion.x = 1;
+
     }
     private void FixedUpdate()
     {
         if (nadando){
-            rb2d.AddForce(direccion * velocidad);
+            rb2d.AddForce(direccion.normalized * velocidad);
 
-            if(rb2d.velocity.magnitude > maxSpeed)
-                rb2d.velocity = rb2d.velocity.normalized * maxSpeed;
+            if(rb2d.velocity.magnitude > maxVel)
+                rb2d.velocity = rb2d.velocity.normalized * maxVel;
         }
     }
 
-
+    
 }
