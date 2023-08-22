@@ -408,11 +408,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0573512ef7f680409c31f28599baa7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  proximoATienda: 0
   panelInventario: {fileID: 522399397}
   textoAbrirTienda: {fileID: 1558985214}
   KeyCodeABRIRTIENDA: 101
-  preciosObjetosTienda: 
+  proximoATienda: 0
+  objetosTienda:
+  - precio:
+      monedas: 20
+      mat:
+        nombre: 0
+        tex: {fileID: 21300000, guid: c1819be62f4831348b6fbda16e0140d8, type: 3}
+      cantMaterial: 3
+    objetoVendidoTextura: {fileID: 21300000, guid: a704dd8919ad1364eb95c79748e044f4, type: 3}
+  - precio:
+      monedas: 20
+      mat:
+        nombre: 1
+        tex: {fileID: 21300000, guid: c1819be62f4831348b6fbda16e0140d8, type: 3}
+      cantMaterial: 3
+    objetoVendidoTextura: {fileID: 21300000, guid: 72096a4b22a30604995521d7e303ae9b, type: 3}
+  - precio:
+      monedas: 20
+      mat:
+        nombre: 2
+        tex: {fileID: 21300000, guid: c1819be62f4831348b6fbda16e0140d8, type: 3}
+      cantMaterial: 3
+    objetoVendidoTextura: {fileID: 21300000, guid: c1819be62f4831348b6fbda16e0140d8, type: 3}
+  - precio:
+      monedas: 20
+      mat:
+        nombre: 3
+        tex: {fileID: 21300000, guid: c1819be62f4831348b6fbda16e0140d8, type: 3}
+      cantMaterial: 3
+    objetoVendidoTextura: {fileID: 21300000, guid: 218b5778d35ee26489c10e6c0dc4aa23, type: 3}
+  - precio:
+      monedas: 20
+      mat:
+        nombre: 0
+        tex: {fileID: 21300000, guid: 94c07a4893692f14d80c95c5f27094ab, type: 3}
+      cantMaterial: 3
+    objetoVendidoTextura: {fileID: 21300000, guid: 94c07a4893692f14d80c95c5f27094ab, type: 3}
 --- !u!61 &435159905
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -570,7 +605,7 @@ GameObject:
   - component: {fileID: 522399400}
   - component: {fileID: 522399399}
   m_Layer: 5
-  m_Name: Inventario
+  m_Name: InventarioTienda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1431,7 +1466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1620735746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1952,18 +1987,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cac569e2b395374c93253ad10f00aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombresMateriales:
-  - Doblones
-  - Nom1
-  - Nom2
-  - Nom3
-  - Nom4
-  ImagenesMateriales:
-  - {fileID: 2800000, guid: ddd6c44c54fa245478731378f255e8ea, type: 3}
-  - {fileID: 2800000, guid: aa8b525346000934999fc4c1aa28dfcd, type: 3}
-  - {fileID: 2800000, guid: 0028cddc73ae1294298041d5df464a8f, type: 3}
-  - {fileID: 2800000, guid: 72096a4b22a30604995521d7e303ae9b, type: 3}
-  - {fileID: 2800000, guid: dd90c7348534e594c8182a483811b7e9, type: 3}
 --- !u!1 &2144724536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,6 +2105,14 @@ PrefabInstance:
     - target: {fileID: 98282592560678380, guid: 3d12509c6db877141b6813e7e4f7b035, type: 3}
       propertyPath: m_RootOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 98282592560678380, guid: 3d12509c6db877141b6813e7e4f7b035, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 98282592560678380, guid: 3d12509c6db877141b6813e7e4f7b035, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 98282592560678380, guid: 3d12509c6db877141b6813e7e4f7b035, type: 3}
       propertyPath: m_LocalPosition.x
