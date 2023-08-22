@@ -43,7 +43,10 @@ public class Tienda : MonoBehaviour
 
     [SerializeField] List<ObjetoTienda> objetosTienda;
 
+    string[] nombresDeMateriales = System.Enum.GetNames(typeof(nomMat)); //convertimos el enum en string para poder usarlo(dentro de region ObjetosYCostes)
     Dictionary<string, int> inventarioJugador;
+    int dineroJugador = 0;
+    [SerializeField] int maxMaterialInventario = 99; //por ahora fijo para todos
 
     private void Start()
     {
@@ -55,6 +58,13 @@ public class Tienda : MonoBehaviour
             hijo.gameObject.GetComponent<Image>().sprite = objetosTienda[i].objetoVendidoTextura;
             hijo.Find("MaterialesRequeridos").Find("Material1").GetComponent<Image>().sprite = objetosTienda[i].precio.mat.tex;
             ++i;
+        }
+
+        inventarioJugador = new Dictionary<string, int>();
+        //ponemos los materiales del inventario del jugador a 0 despues de añadirlos a su diccionario de materiales
+        foreach(string s in nombresDeMateriales)
+        {
+            inventarioJugador.Add(s, 0);
         }
 
     }
@@ -112,5 +122,27 @@ public class Tienda : MonoBehaviour
     public EstadosTienda getEstadoActual()
     {
         return EstadoActual;
+    }
+
+    public void aniadeMaterialInventario(nomMat tipoMaterial) //solo de 1 en 1 por ahora
+    {
+        inventarioJugador[tipoMaterial.ToString()]++;
+    }
+
+    private void quitaMaterialInventario(nomMat tipoMaterial, int cant)
+    {
+        inventarioJugador[tipoMaterial.ToString()] -= cant;
+    }
+
+    private void compraObjetoTienda(int indexTienda)
+    {
+        int costeMonedasObjeto = objetosTienda[indexTienda].precio.monedas;
+        int costeMaterialObjeto = objetosTienda[indexTienda].precio.cantMaterial;
+        string nombreMaterialRequerido = objetosTienda[indexTienda].precio.mat.nombre.ToString();
+        //si se tienen los materiales
+        if (dineroJugador > costeMonedasObjeto && inventarioJugador[nombreMaterialRequerido] > costeMaterialObjeto)
+        {
+            //realiza compra
+        }
     }
 }
