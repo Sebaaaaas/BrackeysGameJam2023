@@ -9,19 +9,30 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb2d;
 
-    public float tiempoOxigenoTanque;
+    #region Materiales
+    
 
-    [SerializeField] float tiempoEntreDisparos = 1.0f;
-    float tiempoUltimoDisparo = 0.0f;
-    public GameObject arpon;
+    #endregion Materiales
+
+    #region StatsJugador
+    public float tiempoOxigenoTanque;
+    public float danioArpon;
+    public float potenciaLinterna;
+    public float velocidad = 1.0f;
+    #endregion StatsJugador
 
     #region VariablesNadar
 
     Vector2 direccion;
-    public float velocidad = 1.0f;
     public float maxVel = 5.0f;
 
     #endregion VariablesNadar
+
+    #region Arpon
+    [SerializeField] float tiempoEntreDisparos = 1.0f;
+    float tiempoUltimoDisparo = 0.0f;
+    public GameObject arpon;
+    #endregion Arpon
 
     #region Controles
 

@@ -13,6 +13,9 @@ public class Tienda : MonoBehaviour
 
     public KeyCode KeyCodeABRIRTIENDA;
 
+
+    [SerializeField] List<int> preciosObjetosTienda;
+
     private void Start()
     {
         EstadoActual = EstadosTienda.TodoCerrado;
