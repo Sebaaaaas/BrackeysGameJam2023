@@ -8,6 +8,7 @@ public class ControladorBarco : MonoBehaviour
     bool proximoABarco = false;
 
     public GameObject jugador;
+    public GameObject tienda;
 
     Rigidbody2D rb2d;
 
@@ -73,6 +74,11 @@ public class ControladorBarco : MonoBehaviour
         }
     }
 
+    public bool GetJugadorEnBarco()
+    {
+        return jugadorEnBarco;
+    }
+
     private void SubirJugadorABarco()
     {
         jugador.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -80,6 +86,11 @@ public class ControladorBarco : MonoBehaviour
         jugador.transform.parent = transform;
         jugador.transform.position = transform.position;
         jugador.GetComponent<PlayerController>().setNadando(false);
+
+        if(tienda.GetComponent<Tienda>().proximoATienda// && 
+            /*tienda.GetComponent<Tienda>().getEstadoActual() != Tienda.EstadosTienda.Abierto*/)
+            tienda.GetComponent<Tienda>().cambiaEstado(Tienda.EstadosTienda.TextoAbrir);
+        
 
         jugadorEnBarco = true;
     }
@@ -90,6 +101,9 @@ public class ControladorBarco : MonoBehaviour
         jugador.transform.position.Set(transform.position.x, transform.position.y - 5, transform.position.z);
         jugador.transform.parent = null;
         jugador.GetComponent<PlayerController>().setNadando(true);
+
+        //si la tienda estaba abierta la cerramos
+        tienda.GetComponent<Tienda>().cambiaEstado(Tienda.EstadosTienda.TodoCerrado);
 
         jugadorEnBarco = false;
     }
