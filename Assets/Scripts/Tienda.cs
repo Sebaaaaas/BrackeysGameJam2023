@@ -51,14 +51,30 @@ public class Tienda : MonoBehaviour
     private void Start()
     {
         EstadoActual = EstadosTienda.TodoCerrado;
-        //asignamos las texturas a los objetos de la tienda
+
+        //asignamos las texturas y costes a los objetos de la tienda
         int i = 0;
         foreach(Transform hijo in panelInventario.transform)
         {
+            //texturas objetos vendidos
             hijo.gameObject.GetComponent<Image>().sprite = objetosTienda[i].objetoVendidoTextura;
-            hijo.Find("MaterialesRequeridos").Find("Material1").GetComponent<Image>().sprite = objetosTienda[i].precio.mat.tex;
+
+            //texturas materiales requeridos para comprar un objeto
+            var costeMaterial = hijo.Find("MaterialesRequeridos").Find("Material1");
+            costeMaterial.GetComponent<Image>().sprite = objetosTienda[i].precio.mat.tex;
+
+            //texto cantidad de materiales requeridos
+            string costeAux = "0/" + objetosTienda[i].precio.cantMaterial.ToString();
+            costeMaterial.Find("TextoMaterial").GetComponent<Text>().text = costeAux;
+
+            //texto cantidad de monedas requeridas
+            costeAux = "0/" + objetosTienda[i].precio.monedas.ToString();
+            hijo.Find("MaterialesRequeridos").Find("Dinero").Find("TextoDinero").GetComponent<Text>().text = costeAux;
+
+
             ++i;
         }
+
 
         inventarioJugador = new Dictionary<string, int>();
         //ponemos los materiales del inventario del jugador a 0 despues de añadirlos a su diccionario de materiales
