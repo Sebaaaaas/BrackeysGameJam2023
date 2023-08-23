@@ -45,7 +45,7 @@ public class Tienda : MonoBehaviour
 
     string[] nombresDeMateriales = System.Enum.GetNames(typeof(nomMat)); //convertimos el enum en string para poder usarlo(dentro de region ObjetosYCostes)
     Dictionary<string, int> inventarioJugador;
-    int dineroJugador = 0;
+    int dineroJugador = 3;
     [SerializeField] int maxMaterialInventario = 99; //por ahora fijo para todos
 
     private void Start()
@@ -60,7 +60,7 @@ public class Tienda : MonoBehaviour
             hijo.gameObject.GetComponent<Image>().sprite = objetosTienda[i].objetoVendidoTextura;
 
             //texturas materiales requeridos para comprar un objeto
-            var costeMaterial = hijo.Find("MaterialesRequeridos").Find("Material1");
+            Transform costeMaterial = hijo.Find("MaterialesRequeridos").Find("Material1"); //el transform que contiene todos los valores de materiales y monedas
             costeMaterial.GetComponent<Image>().sprite = objetosTienda[i].precio.mat.tex;
 
             //texto cantidad de materiales requeridos
@@ -109,12 +109,12 @@ public class Tienda : MonoBehaviour
             cambiaEstado(EstadosTienda.Abierto);
         else if (EstadoActual == EstadosTienda.Abierto && Input.GetKeyDown(KeyCodeABRIRTIENDA))
             cambiaEstado(EstadosTienda.TextoAbrir);
+
     }
 
     public void cambiaEstado(EstadosTienda nuevoEstado)
     {
         EstadoActual = nuevoEstado;
-        Debug.Log("cambioEstado " + nuevoEstado);
 
         switch (nuevoEstado)
         {
@@ -125,6 +125,7 @@ public class Tienda : MonoBehaviour
             case EstadosTienda.TextoAbrir:
                 textoAbrirTienda.SetActive(true);
                 panelInventario.SetActive(false);
+                ActualizaTextosTiendaInventario();
                 break;
             case EstadosTienda.Abierto:
                 textoAbrirTienda.SetActive(false);
@@ -159,6 +160,25 @@ public class Tienda : MonoBehaviour
         if (dineroJugador > costeMonedasObjeto && inventarioJugador[nombreMaterialRequerido] > costeMaterialObjeto)
         {
             //realiza compra
+        }
+    }
+
+    private void ActualizaTextosTiendaInventario() //actualizamos cuando abrimos la tienda o el inventario
+    {
+        int i = 0;
+        foreach (Transform hijo in panelInventario.transform)
+        {
+            Transform costeMaterial = hijo.Find("MaterialesRequeridos").Find("Material1"); //el transform que contiene todos los valores de materiales y monedas
+
+            //texto cantidad de materiales requeridos
+            string costeAux = inventarioJugador[objetosTienda[i].precio.mat.nombre.ToString()] + "/" + objetosTienda[i].precio.cantMaterial.ToString();
+            costeMaterial.Find("TextoMaterial").GetComponent<Text>().text = costeAux;
+
+            //texto cantidad de monedas requeridas
+            costeAux = dineroJugador + "/" + objetosTienda[i].precio.monedas.ToString();
+            hijo.Find("MaterialesRequeridos").Find("Dinero").Find("TextoDinero").GetComponent<Text>().text = costeAux;
+
+            ++i;
         }
     }
 }

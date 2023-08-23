@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode keyCodeLEFT;
     public KeyCode keyCodeRIGHT;
     public KeyCode keyCodeSHOOT;
+    public KeyCode keyCodeABRIRINVENTARIO;
 
     #endregion Controles
 
@@ -71,7 +72,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if (nadando){
-            rb2d.AddForce(direccion.normalized * velocidad);
+            rb2d.AddForce(direccion.normalized * velocidad * Time.fixedDeltaTime);
 
             if(rb2d.velocity.magnitude > maxVel)
                 rb2d.velocity = rb2d.velocity.normalized * maxVel;
