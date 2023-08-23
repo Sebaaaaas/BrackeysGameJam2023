@@ -159,6 +159,10 @@ public class Tienda : MonoBehaviour
         if (dineroJugador > costeMonedasObjeto && inventarioJugador[nombreMaterialRequerido] > costeMaterialObjeto)
         {
             //realiza compra
+            dineroJugador -= costeMonedasObjeto;
+            inventarioJugador[nombreMaterialRequerido] -= costeMaterialObjeto;
+
+            //subimos el nivel
         }
     }
 

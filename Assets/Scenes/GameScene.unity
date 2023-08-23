@@ -2164,6 +2164,15 @@ MonoBehaviour:
   danioArpon: 0
   potenciaLinterna: 0
   velocidad: 150
+  stats:
+  - nombreStat: tiempoOxigenoTanque
+    nivelesStats: 000000000000000000000000
+  - nombreStat: danioArpon
+    nivelesStats: 000000000000000000000000
+  - nombreStat: potenciaLinterna
+    nivelesStats: 020000000400000007000000
+  - nombreStat: velocidad
+    nivelesStats: 6400000096000000c8000000
   maxVel: 5
   tiempoEntreDisparos: 1
   arpon: {fileID: 965534671254331553, guid: 6889e6b8b9b3a81408d98d57d7c28b4c, type: 3}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -18,14 +19,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject panelInventario;
 
     #region StatsJugador
-    int nivelOxigeno = 0;
-    int nivelArpon = 0;
-    int nivelVelocidad = 0;
+    int nivelOxigeno = 1;
+    int nivelArpon = 1;
+    int nivelLinterna = 1;
+    int nivelVelocidad = 1;
 
     public float tiempoOxigenoTanque;
     public float danioArpon;
     public float potenciaLinterna;
     public float velocidad = 1.0f;
+
+    [Serializable]
+    public struct statsNiveles
+    {
+        public string nombreStat;
+        public int[] nivelesStats;
+    }
+    public statsNiveles[] stats;
+    //public Dictionary<string, List<int>> statsNiveles = new Dictionary<string, List<int>>();
     #endregion StatsJugador
 
     #region VariablesNadar
@@ -111,6 +122,26 @@ public class PlayerController : MonoBehaviour
         arponAux.transform.rotation = Quaternion.Euler(0,0,rotZ);
     }
 
+    public void subeNivel(string objetoAMejorar) //se podria hacer con enum pero esto vale por ahora
+    {
+        switch (objetoAMejorar)
+        {
+            case "tiempoOxigenoTanque":
+                nivelOxigeno++;
+                break;
+            case "danioArpon":
+                nivelArpon++;
+                break;
+            case "potenciaLinterna":
+                nivelLinterna++;
+                break;
+            case "velocidad":
+                nivelVelocidad++;
+                break;
+            default:
+                break;
+        }
+    }
     public void cambiaEstado(EstadosJugador nuevoEstado)
     {
         EstadoActual = nuevoEstado;
