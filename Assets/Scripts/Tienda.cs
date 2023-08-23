@@ -125,7 +125,6 @@ public class Tienda : MonoBehaviour
             case EstadosTienda.TextoAbrir:
                 textoAbrirTienda.SetActive(true);
                 panelInventario.SetActive(false);
-                ActualizaTextosTiendaInventario();
                 break;
             case EstadosTienda.Abierto:
                 textoAbrirTienda.SetActive(false);
@@ -163,18 +162,18 @@ public class Tienda : MonoBehaviour
         }
     }
 
-    private void ActualizaTextosTiendaInventario() //actualizamos cuando abrimos la tienda o el inventario
+    public void ActualizaTextosTiendaInventario() //actualizamos cuando abrimos la tienda o el inventario
     {
         int i = 0;
         foreach (Transform hijo in panelInventario.transform)
         {
             Transform costeMaterial = hijo.Find("MaterialesRequeridos").Find("Material1"); //el transform que contiene todos los valores de materiales y monedas
 
-            //texto cantidad de materiales requeridos
+            //texto cantidad de materiales requeridos tienda
             string costeAux = inventarioJugador[objetosTienda[i].precio.mat.nombre.ToString()] + "/" + objetosTienda[i].precio.cantMaterial.ToString();
             costeMaterial.Find("TextoMaterial").GetComponent<Text>().text = costeAux;
 
-            //texto cantidad de monedas requeridas
+            //texto cantidad de monedas requeridas tienda
             costeAux = dineroJugador + "/" + objetosTienda[i].precio.monedas.ToString();
             hijo.Find("MaterialesRequeridos").Find("Dinero").Find("TextoDinero").GetComponent<Text>().text = costeAux;
 

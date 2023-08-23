@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using static Tienda;
 
 public class PlayerController : MonoBehaviour
 {
+    public enum EstadosJugador { EnBarca, Nadando }
+    EstadosJugador EstadoActual;
+
     bool nadando = true;
 
     Rigidbody2D rb2d;
+
+    [SerializeField] GameObject panelInventario;
 
     #region StatsJugador
     int nivelOxigeno = 0;
@@ -47,6 +53,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        EstadoActual = EstadosJugador.Nadando;
     }
     private void Update()
     {
@@ -67,6 +74,12 @@ public class PlayerController : MonoBehaviour
 
         if (nadando && Input.GetKeyDown(keyCodeSHOOT) && Time.time - tiempoEntreDisparos > tiempoUltimoDisparo)
             Shoot();
+
+        if (Input.GetKey(keyCodeABRIRINVENTARIO))
+            panelInventario.SetActive(true);
+        else if(Input.GetKeyUp(keyCodeABRIRINVENTARIO))
+            panelInventario.SetActive(false);
+
 
     }
     private void FixedUpdate()

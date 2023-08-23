@@ -36,10 +36,16 @@ public class ControladorBarco : MonoBehaviour
     {
         direccion = new Vector2();
 
-        if (Input.GetKey(keyCodeLEFT))
+        if (jugadorEnBarco && Input.GetKey(keyCodeLEFT))
+        {
             direccion.x = -1;
-        else if (Input.GetKey(keyCodeRIGHT))
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (jugadorEnBarco && Input.GetKey(keyCodeRIGHT))
+        {
             direccion.x = 1;
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
 
         if(Input.GetKeyDown(keyCodeTOFROMBOAT))
             if(proximoABarco && !jugadorEnBarco)
