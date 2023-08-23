@@ -52,7 +52,7 @@ public class ControladorBarco : MonoBehaviour
     private void FixedUpdate()
     {
         if(jugadorEnBarco)
-            rb2d.AddForce(direccion.normalized * velocidad * Time.deltaTime);
+            rb2d.AddForce(direccion.normalized * velocidad * Time.fixedDeltaTime);
 
         if (rb2d.velocity.magnitude > maxVel)
             rb2d.velocity = rb2d.velocity.normalized * maxVel;
