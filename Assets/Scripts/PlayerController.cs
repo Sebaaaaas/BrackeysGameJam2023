@@ -19,15 +19,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject panelInventario;
 
     #region StatsJugador
-    int nivelOxigeno = 1;
-    int nivelArpon = 1;
-    int nivelLinterna = 1;
-    int nivelVelocidad = 1;
+    int nivelOxigeno = 0;
+    int nivelArpon = 0;
+    int nivelLinterna = 0;
+    int nivelVelocidad = 0;
 
-    public float tiempoOxigenoTanque;
-    public float danioArpon;
-    public float potenciaLinterna;
-    public float velocidad = 1.0f;
+    float tiempoOxigenoTanque;   //0
+    float danioArpon;            //1
+    float potenciaLinterna;      //2
+    float velocidad;             //3
 
     [Serializable]
     public struct statsNiveles
@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         EstadoActual = EstadosJugador.Nadando;
+
+        actualizaStatsJugador(); //ponemos las stats basicas de nivel 1
     }
     private void Update()
     {
@@ -160,5 +162,14 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void actualizaStatsJugador()
+    {
+        tiempoOxigenoTanque = stats[0].nivelesStats[nivelOxigeno]; //el tiempo que dura el oxigeno es = a las stats[0]
+                                                                   //(corresponde a oxigeno) . de nivel[nivel actual de oxigeno]
+        danioArpon = stats[1].nivelesStats[nivelArpon];
+        potenciaLinterna = stats[2].nivelesStats[nivelLinterna];
+        velocidad = stats[3].nivelesStats[nivelVelocidad];
     }
 }
