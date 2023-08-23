@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     bool nadando = true;
 
+    [SerializeField] GameObject burbujas;
+
     Rigidbody2D rb2d;
 
     [SerializeField] GameObject panelInventario;
@@ -108,5 +110,24 @@ public class PlayerController : MonoBehaviour
         GameObject arponAux = Instantiate(arpon, transform);
         arponAux.transform.rotation = Quaternion.Euler(0,0,rotZ);
     }
-    
+
+    public void cambiaEstado(EstadosJugador nuevoEstado)
+    {
+        EstadoActual = nuevoEstado;
+
+        switch (nuevoEstado)
+        {
+            case EstadosJugador.EnBarca:
+                burbujas.SetActive(false);
+                setNadando(false);
+                //ponemos animaciones
+                break;
+            case EstadosJugador.Nadando:
+                burbujas.SetActive(true);
+                setNadando(true);
+                break;
+            default:
+                break;
+        }
+    }
 }

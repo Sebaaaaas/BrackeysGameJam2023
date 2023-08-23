@@ -91,7 +91,7 @@ public class ControladorBarco : MonoBehaviour
         jugador.GetComponent<Rigidbody2D>().isKinematic = true;
         jugador.transform.parent = transform;
         jugador.transform.position = transform.position;
-        jugador.GetComponent<PlayerController>().setNadando(false);
+        jugador.GetComponent<PlayerController>().cambiaEstado(PlayerController.EstadosJugador.EnBarca);
 
         if(tienda.GetComponent<Tienda>().proximoATienda// && 
             /*tienda.GetComponent<Tienda>().getEstadoActual() != Tienda.EstadosTienda.Abierto*/)
@@ -106,7 +106,8 @@ public class ControladorBarco : MonoBehaviour
         jugador.GetComponent<Rigidbody2D>().isKinematic = false;
         jugador.transform.position.Set(transform.position.x, transform.position.y - 5, transform.position.z);
         jugador.transform.parent = null;
-        jugador.GetComponent<PlayerController>().setNadando(true);
+
+        jugador.GetComponent<PlayerController>().cambiaEstado(PlayerController.EstadosJugador.Nadando);
 
         //si la tienda estaba abierta la cerramos
         tienda.GetComponent<Tienda>().cambiaEstado(Tienda.EstadosTienda.TodoCerrado);

@@ -24,4 +24,9 @@ public class Temporizador : MonoBehaviour
         float milliSeconds = (timeToDisplay % 1) * 1000;
         timeText.text = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliSeconds);
     }
+
+    public void setTime(float newTime)
+    {
+        timeRemaining = newTime;
+    }
 }
