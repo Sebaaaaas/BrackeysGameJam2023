@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class Tienda : MonoBehaviour
 {
 
-    [SerializeField] GameObject panelInventario;
+    [SerializeField] GameObject panelInventarioTienda;
+    [SerializeField] GameObject panelInventarioJugador;
     [SerializeField] GameObject textoAbrirTienda;
     public enum EstadosTienda { TodoCerrado, TextoAbrir, Abierto }
     EstadosTienda EstadoActual;
@@ -54,7 +55,7 @@ public class Tienda : MonoBehaviour
 
         //asignamos las texturas y costes a los objetos de la tienda
         int i = 0;
-        foreach(Transform hijo in panelInventario.transform)
+        foreach(Transform hijo in panelInventarioTienda.transform)
         {
             //texturas objetos vendidos
             hijo.gameObject.GetComponent<Image>().sprite = objetosTienda[i].objetoVendidoTextura;
@@ -109,7 +110,6 @@ public class Tienda : MonoBehaviour
             cambiaEstado(EstadosTienda.Abierto);
         else if (EstadoActual == EstadosTienda.Abierto && Input.GetKeyDown(KeyCodeABRIRTIENDA))
             cambiaEstado(EstadosTienda.TextoAbrir);
-
     }
 
     public void cambiaEstado(EstadosTienda nuevoEstado)
@@ -120,15 +120,15 @@ public class Tienda : MonoBehaviour
         {
             case EstadosTienda.TodoCerrado:
                 textoAbrirTienda.SetActive(false);
-                panelInventario.SetActive(false);
+                panelInventarioTienda.SetActive(false);
                 break;
             case EstadosTienda.TextoAbrir:
                 textoAbrirTienda.SetActive(true);
-                panelInventario.SetActive(false);
+                panelInventarioTienda.SetActive(false);
                 break;
             case EstadosTienda.Abierto:
                 textoAbrirTienda.SetActive(false);
-                panelInventario.SetActive(true);
+                panelInventarioTienda.SetActive(true);
                 break;
             default:
                 break;
@@ -169,7 +169,7 @@ public class Tienda : MonoBehaviour
     public void ActualizaTextosTiendaInventario() //actualizamos cuando abrimos la tienda o el inventario
     {
         int i = 0;
-        foreach (Transform hijo in panelInventario.transform)
+        foreach (Transform hijo in panelInventarioTienda.transform)
         {
             Transform costeMaterial = hijo.Find("MaterialesRequeridos").Find("Material1"); //el transform que contiene todos los valores de materiales y monedas
 
@@ -180,7 +180,14 @@ public class Tienda : MonoBehaviour
             //texto cantidad de monedas requeridas tienda
             costeAux = dineroJugador + "/" + objetosTienda[i].precio.monedas.ToString();
             hijo.Find("MaterialesRequeridos").Find("Dinero").Find("TextoDinero").GetComponent<Text>().text = costeAux;
+            ++i;
+        }
 
+        Transform padreMaterialesInventarioJugador = panelInventarioJugador.transform.Find("MaterialesInventario");
+        i = 0;
+        foreach(Transform hijo in padreMaterialesInventarioJugador)
+        {
+            hijo.Find("CantidadMaterial").GetComponent<Text>().text = "x" + inventarioJugador[nombresDeMateriales[i]];
             ++i;
         }
     }

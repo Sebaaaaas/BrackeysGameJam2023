@@ -16,6 +16,7 @@ public class MaterialSuelto : MonoBehaviour
         if(collision.GetComponent<PlayerController>() != null)
         {
             tienda.GetComponent<Tienda>().aniadeMaterialInventario(tipoMat);
+            tienda.GetComponent<Tienda>().ActualizaTextosTiendaInventario();
             Destroy(gameObject);
         }
     }
