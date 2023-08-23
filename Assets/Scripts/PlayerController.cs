@@ -9,12 +9,11 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb2d;
 
-    #region Materiales
-    
-
-    #endregion Materiales
-
     #region StatsJugador
+    int nivelOxigeno = 0;
+    int nivelArpon = 0;
+    int nivelVelocidad = 0;
+
     public float tiempoOxigenoTanque;
     public float danioArpon;
     public float potenciaLinterna;
@@ -25,7 +24,6 @@ public class PlayerController : MonoBehaviour
 
     Vector2 direccion;
     public float maxVel = 5.0f;
-
     #endregion VariablesNadar
 
     #region Arpon
