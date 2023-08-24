@@ -19,16 +19,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject panelInventario;
 
     #region StatsJugador
-    int nivelOxigeno = 0;
-    int nivelArpon = 0;
-    int nivelLinterna = 0;
-    int nivelVelocidad = 0;
+    //int nivelOxigeno = 0;
+    //int nivelArpon = 0;
+    //int nivelLinterna = 0;
+    //int nivelVelocidad = 0;
+    public int[] nivelesStats_;
 
     float tiempoOxigenoTanque;   //0
     float danioArpon;            //1
     float potenciaLinterna;      //2
     float velocidad;             //3
-
+    
     [Serializable]
     public struct statsNiveles
     {
@@ -67,6 +68,8 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         EstadoActual = EstadosJugador.Nadando;
+
+        nivelesStats_ = new int[4] { 1, 1, 1, 1 };
 
         actualizaStatsJugador(); //ponemos las stats basicas de nivel 1
     }
@@ -124,25 +127,10 @@ public class PlayerController : MonoBehaviour
         arponAux.transform.rotation = Quaternion.Euler(0,0,rotZ);
     }
 
-    public void subeNivel(string objetoAMejorar) //se podria hacer con enum pero esto vale por ahora
+    public void subeNivel(int objetoAMejorar) //se podria hacer con enum pero esto vale por ahora
     {
-        switch (objetoAMejorar)
-        {
-            case "tiempoOxigenoTanque":
-                nivelOxigeno++;
-                break;
-            case "danioArpon":
-                nivelArpon++;
-                break;
-            case "potenciaLinterna":
-                nivelLinterna++;
-                break;
-            case "velocidad":
-                nivelVelocidad++;
-                break;
-            default:
-                break;
-        }
+        nivelesStats_[objetoAMejorar]++;
+        
     }
     public void cambiaEstado(EstadosJugador nuevoEstado)
     {
@@ -166,10 +154,10 @@ public class PlayerController : MonoBehaviour
 
     private void actualizaStatsJugador()
     {
-        tiempoOxigenoTanque = stats[0].nivelesStats[nivelOxigeno]; //el tiempo que dura el oxigeno es = a las stats[0]
+        tiempoOxigenoTanque = stats[0].nivelesStats[nivelesStats_[0]]; //el tiempo que dura el oxigeno es = a las stats[0]
                                                                    //(corresponde a oxigeno) . de nivel[nivel actual de oxigeno]
-        danioArpon = stats[1].nivelesStats[nivelArpon];
-        potenciaLinterna = stats[2].nivelesStats[nivelLinterna];
-        velocidad = stats[3].nivelesStats[nivelVelocidad];
+        danioArpon = stats[1].nivelesStats[nivelesStats_[1]];
+        potenciaLinterna = stats[2].nivelesStats[nivelesStats_[2]];
+        velocidad = stats[3].nivelesStats[nivelesStats_[3]];
     }
 }

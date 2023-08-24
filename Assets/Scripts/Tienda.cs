@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Tienda : MonoBehaviour
 {
-
+    [SerializeField] GameObject Jugador;
     [SerializeField] GameObject panelInventarioTienda;
     [SerializeField] GameObject panelInventarioJugador;
     [SerializeField] GameObject textoAbrirTienda;
@@ -46,7 +46,7 @@ public class Tienda : MonoBehaviour
 
     string[] nombresDeMateriales = System.Enum.GetNames(typeof(nomMat)); //convertimos el enum en string para poder usarlo(dentro de region ObjetosYCostes)
     Dictionary<string, int> inventarioJugador;
-    int dineroJugador = 3;
+    int dineroJugador = 0;
     [SerializeField] int maxMaterialInventario = 99; //por ahora fijo para todos
 
     private void Start()
@@ -155,19 +155,24 @@ public class Tienda : MonoBehaviour
         int costeMonedasObjeto = objetosTienda[indexTienda].precio.monedas;
         int costeMaterialObjeto = objetosTienda[indexTienda].precio.cantMaterial;
         string nombreMaterialRequerido = objetosTienda[indexTienda].precio.mat.nombre.ToString();
-        //si se tienen los materiales
-        if (dineroJugador > costeMonedasObjeto && inventarioJugador[nombreMaterialRequerido] > costeMaterialObjeto)
+
+        //si se tienen los materiales y dinero suficientes
+        if (dineroJugador >= costeMonedasObjeto && inventarioJugador[nombreMaterialRequerido] >= costeMaterialObjeto)
         {
             //realiza compra
             dineroJugador -= costeMonedasObjeto;
             inventarioJugador[nombreMaterialRequerido] -= costeMaterialObjeto;
 
             //subimos el nivel
+            Jugador.GetComponent<PlayerController>().subeNivel(indexTienda);
+
+            ActualizaTextosTiendaInventario();
         }
     }
 
     public void ActualizaTextosTiendaInventario() //actualizamos cuando abrimos la tienda o el inventario
     {
+        //TIENDA
         int i = 0;
         foreach (Transform hijo in panelInventarioTienda.transform)
         {
@@ -183,11 +188,24 @@ public class Tienda : MonoBehaviour
             ++i;
         }
 
+        //INVENTARIO JUGADOR
+
+        //monedas
+        panelInventarioJugador.transform.Find("ImagenDinero").gameObject.GetComponent<Text>().text = dineroJugador.ToString();
+
         Transform padreMaterialesInventarioJugador = panelInventarioJugador.transform.Find("MaterialesInventario");
         i = 0;
         foreach(Transform hijo in padreMaterialesInventarioJugador)
         {
             hijo.Find("CantidadMaterial").GetComponent<Text>().text = "x" + inventarioJugador[nombresDeMateriales[i]];
+            ++i;
+        }
+
+        Transform padreObjetosMejorablesJugador = panelInventarioJugador.transform.Find("ObjetosMejorables");
+        i = 0;
+        foreach (Transform hijo in padreObjetosMejorablesJugador)
+        {
+            hijo.Find("NivelObjeto").Find("TextoNivelObjeto").GetComponent<Text>().text = "Lvl " + Jugador.GetComponent<PlayerController>().nivelesStats_[i];
             ++i;
         }
     }
