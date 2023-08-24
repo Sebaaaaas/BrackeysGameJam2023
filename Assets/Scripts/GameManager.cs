@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [SerializeField] GameObject Tienda;
+    [SerializeField] GameObject Jugador;
 
     void Awake()
     {
@@ -28,5 +29,10 @@ public class GameManager : MonoBehaviour
     public GameObject getTienda()
     {
         return Tienda;
+    }
+
+    public GameObject getJugador()
+    {
+        return Jugador;
     }
 }
