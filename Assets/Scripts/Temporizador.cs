@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Temporizador : MonoBehaviour
 {
     public float timeRemaining = 10;
-    public Text timeText;
+    public TextMeshProUGUI timeText;
     void Update()
     {
         if (timeRemaining > 0)

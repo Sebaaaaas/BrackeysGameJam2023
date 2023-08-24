@@ -150,7 +150,7 @@ public class Tienda : MonoBehaviour
         inventarioJugador[tipoMaterial.ToString()] -= cant;
     }
 
-    private void compraObjetoTienda(int indexTienda)
+    public void compraObjetoTienda(int indexTienda)
     {
         int costeMonedasObjeto = objetosTienda[indexTienda].precio.monedas;
         int costeMaterialObjeto = objetosTienda[indexTienda].precio.cantMaterial;
