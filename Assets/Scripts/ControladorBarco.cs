@@ -28,6 +28,9 @@ public class ControladorBarco : MonoBehaviour
 
     #endregion Controles
 
+    [SerializeField] GameObject camaraNadar;
+    [SerializeField] GameObject camaraBarco;
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -87,14 +90,17 @@ public class ControladorBarco : MonoBehaviour
 
     private void SubirJugadorABarco()
     {
+        //cambio camara
+        camaraBarco.SetActive(true);
+        camaraNadar.SetActive(false);
+
         jugador.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         jugador.GetComponent<Rigidbody2D>().isKinematic = true;
         jugador.transform.parent = transform;
         jugador.transform.position = transform.position;
         jugador.GetComponent<PlayerController>().cambiaEstado(PlayerController.EstadosJugador.EnBarca);
 
-        if(tienda.GetComponent<Tienda>().proximoATienda// && 
-            /*tienda.GetComponent<Tienda>().getEstadoActual() != Tienda.EstadosTienda.Abierto*/)
+        if(tienda.GetComponent<Tienda>().proximoATienda)
             tienda.GetComponent<Tienda>().cambiaEstado(Tienda.EstadosTienda.TextoAbrir);
         
 
@@ -103,6 +109,9 @@ public class ControladorBarco : MonoBehaviour
 
     private void BajarJugadorDeBarco()
     {
+        camaraBarco.SetActive(false);
+        camaraNadar.SetActive(true);
+
         jugador.GetComponent<Rigidbody2D>().isKinematic = false;
         jugador.transform.position.Set(transform.position.x, transform.position.y - 5, transform.position.z);
         jugador.transform.parent = null;
