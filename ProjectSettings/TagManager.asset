@@ -50,3 +50,6 @@ TagManager:
   - name: Ship
     uniqueID: 805565927
     locked: 0
+  - name: Foreground
+    uniqueID: 1639017441
+    locked: 0
