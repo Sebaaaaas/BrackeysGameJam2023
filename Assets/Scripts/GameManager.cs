@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-       
+
     }
 
     public GameObject getTienda()
@@ -35,4 +35,5 @@ public class GameManager : MonoBehaviour
     {
         return Jugador;
     }
+
 }

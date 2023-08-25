@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour
 
     #endregion Controles
 
+    Temporizador temporizador;
+
     private void Awake()
     {
         nivelesStats_ = new int[4] { 1, 1, 1, 1 };
@@ -69,6 +71,8 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         EstadoActual = EstadosJugador.Nadando;
+
+        temporizador = GetComponent<Temporizador>();
 
         actualizaStatsJugador(); //ponemos las stats basicas de nivel 1
     }
@@ -108,7 +112,6 @@ public class PlayerController : MonoBehaviour
                 rb2d.velocity = rb2d.velocity.normalized * maxVel;
         }
     }
-
     public void setNadando(bool nadando_)
     {
         nadando = nadando_;
@@ -135,11 +138,13 @@ public class PlayerController : MonoBehaviour
             case EstadosJugador.EnBarca:
                 burbujas.SetActive(false);
                 setNadando(false);
+                desactivaTemporizador();
                 //ponemos animaciones
                 break;
             case EstadosJugador.Nadando:
                 burbujas.SetActive(true);
                 setNadando(true);
+                activaTemporizador();
                 break;
             default:
                 break;
@@ -158,5 +163,21 @@ public class PlayerController : MonoBehaviour
         danioArpon = stats[1].nivelesStats[nivelesStats_[1]-1];
         potenciaLinterna = stats[2].nivelesStats[nivelesStats_[2] - 1];
         velocidad = stats[3].nivelesStats[nivelesStats_[3] - 1];
+    }
+
+    private void activaTemporizador()
+    {
+        temporizador.timeText.gameObject.SetActive(true);
+        reseteaTemporizador();
+    }
+
+    private void reseteaTemporizador()
+    {
+        temporizador.setTime(tiempoOxigenoTanque);
+    }
+    private void desactivaTemporizador()
+    {
+        temporizador.timeText.gameObject.SetActive(false);
+
     }
 }
