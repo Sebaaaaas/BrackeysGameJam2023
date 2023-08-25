@@ -16,15 +16,15 @@ public class BarraProfundidad : MonoBehaviour
     {
 
         float porcentajeProfundidadReal = (100 * transform.position.y) / (maxProf - minProf);
-        Debug.Log(porcentajeProfundidadReal + "%");
+
         if(porcentajeProfundidadReal < 0)
-            indicadorProfundidad.transform.localPosition = new Vector3(0, 0, Barra.transform.position.z);
+            indicadorProfundidad.transform.localPosition = new Vector3(0, minPosEnBarra, Barra.transform.position.z);
         else if(porcentajeProfundidadReal > 100)
-            indicadorProfundidad.transform.localPosition = new Vector3(0, 100, Barra.transform.position.z);
+            indicadorProfundidad.transform.localPosition = new Vector3(0, maxPosEnBarra, Barra.transform.position.z);
         else
         {
             float nuevaProfundidad = porcentajeProfundidadReal/100 * (maxPosEnBarra-minPosEnBarra);
-            indicadorProfundidad.transform.localPosition = new Vector3(0, nuevaProfundidad, Barra.transform.position.z);
+            indicadorProfundidad.transform.localPosition = new Vector3(0, minPosEnBarra + nuevaProfundidad, Barra.transform.position.z);
         }
 
     }
