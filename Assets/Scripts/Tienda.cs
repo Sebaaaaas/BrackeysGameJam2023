@@ -45,7 +45,7 @@ public class Tienda : MonoBehaviour
             //texto cantidad de monedas requeridas
             int nivelObjetoAMejorar = 1;
             string costeAux = "0/" + objetosTienda[i].monedasPorNivel[nivelObjetoAMejorar].ToString();
-            hijo.Find("Dinero").Find("TextoDinero").GetComponent<Text>().text = costeAux;
+            hijo.Find("Image").Find("TextoDinero").GetComponent<Text>().text = costeAux;
 
 
             ++i;
@@ -137,7 +137,7 @@ public class Tienda : MonoBehaviour
 
             if (jugador.nivelesStats_[indexTienda] == jugador.maxLvl) //nivel max, desactivamos el boton
             {
-                panelInventarioTienda.transform.GetChild(indexTienda).Find("Image").gameObject.SetActive(false);
+                panelInventarioTienda.transform.GetChild(indexTienda).Find("ImageUpgrade").gameObject.SetActive(false);
             }
 
             ActualizaTextosTiendaInventario();
@@ -156,13 +156,13 @@ public class Tienda : MonoBehaviour
 
             if(Jugador.GetComponent<PlayerController>().nivelesStats_[i] == Jugador.GetComponent<PlayerController>().maxLvl)
             {
-                hijo.Find("Dinero").Find("TextoDinero").GetComponent<Text>().text = "max";
+                hijo.Find("Image").Find("TextoDinero").GetComponent<Text>().text = "max";
             }
             else
             {
                 string costeAux = dineroJugador + "/" + objetosTienda[i].monedasPorNivel[nivelActualObjeto - 1].ToString();
             
-                hijo.Find("Dinero").Find("TextoDinero").GetComponent<Text>().text = costeAux;
+                hijo.Find("Image").Find("TextoDinero").GetComponent<Text>().text = costeAux;
             }
             ++i;
         }
