@@ -147,14 +147,15 @@ public class PlayerController : MonoBehaviour
     public void subeNivel(int objetoAMejorar) //se podria hacer con enum pero esto vale por ahora
     {
         nivelesStats_[objetoAMejorar]++;
+        actualizaStatsJugador();
     }
 
     private void actualizaStatsJugador()
     {
-        tiempoOxigenoTanque = stats[0].nivelesStats[nivelesStats_[0]]; //el tiempo que dura el oxigeno es = a las stats[0]
+        tiempoOxigenoTanque = stats[0].nivelesStats[nivelesStats_[0]-1]; //el tiempo que dura el oxigeno es = a las stats[0]
                                                                    //(corresponde a oxigeno) . de nivel[nivel actual de oxigeno]
-        danioArpon = stats[1].nivelesStats[nivelesStats_[1]];
-        potenciaLinterna = stats[2].nivelesStats[nivelesStats_[2]];
-        velocidad = stats[3].nivelesStats[nivelesStats_[3]];
+        danioArpon = stats[1].nivelesStats[nivelesStats_[1]-1];
+        potenciaLinterna = stats[2].nivelesStats[nivelesStats_[2] - 1];
+        velocidad = stats[3].nivelesStats[nivelesStats_[3] - 1];
     }
 }
