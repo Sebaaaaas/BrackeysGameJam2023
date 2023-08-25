@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MaterialSuelto : MonoBehaviour
 {
-    [SerializeField] Tienda.nomMat tipoMat;
+    //[SerializeField] Tienda.nomMat tipoMat;
     GameObject tienda;
-
+    int valorMonetario = 10;
     private void Start()
     {
         tienda = GameManager.instance.getTienda();
@@ -15,7 +15,7 @@ public class MaterialSuelto : MonoBehaviour
     {
         if(collision.GetComponent<PlayerController>() != null)
         {
-            tienda.GetComponent<Tienda>().aniadeMaterialInventario(tipoMat);
+            tienda.GetComponent<Tienda>().ganaDinero(valorMonetario);
             tienda.GetComponent<Tienda>().ActualizaTextosTiendaInventario();
             Destroy(gameObject);
         }

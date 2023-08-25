@@ -19,11 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject panelInventario;
 
     #region StatsJugador
-    //int nivelOxigeno = 0;
-    //int nivelArpon = 0;
-    //int nivelLinterna = 0;
-    //int nivelVelocidad = 0;
+
     public int[] nivelesStats_;
+    public int maxLvl = 3;
 
     float tiempoOxigenoTanque;   //0
     float danioArpon;            //1
@@ -31,13 +29,13 @@ public class PlayerController : MonoBehaviour
     float velocidad;             //3
     
     [Serializable]
-    public struct statsNiveles
+    public struct statsNiveles //el oxigeno tiene X segundos al nivel 0, Y al 1, Z al 2...
     {
         public string nombreStat;
         public int[] nivelesStats;
     }
-    public statsNiveles[] stats;
-    //public Dictionary<string, List<int>> statsNiveles = new Dictionary<string, List<int>>();
+    public statsNiveles[] stats; //0 ox, 1 arp, 2 lint, 3 vel
+
     #endregion StatsJugador
 
     #region VariablesNadar
@@ -127,11 +125,6 @@ public class PlayerController : MonoBehaviour
         arponAux.transform.rotation = Quaternion.Euler(0,0,rotZ);
     }
 
-    public void subeNivel(int objetoAMejorar) //se podria hacer con enum pero esto vale por ahora
-    {
-        nivelesStats_[objetoAMejorar]++;
-        
-    }
     public void cambiaEstado(EstadosJugador nuevoEstado)
     {
         EstadoActual = nuevoEstado;
@@ -150,6 +143,10 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
+    }
+    public void subeNivel(int objetoAMejorar) //se podria hacer con enum pero esto vale por ahora
+    {
+        nivelesStats_[objetoAMejorar]++;
     }
 
     private void actualizaStatsJugador()
