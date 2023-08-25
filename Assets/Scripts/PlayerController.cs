@@ -61,13 +61,14 @@ public class PlayerController : MonoBehaviour
 
     #endregion Controles
 
-
+    private void Awake()
+    {
+        nivelesStats_ = new int[4] { 1, 1, 1, 1 };
+    }
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         EstadoActual = EstadosJugador.Nadando;
-
-        nivelesStats_ = new int[4] { 1, 1, 1, 1 };
 
         actualizaStatsJugador(); //ponemos las stats basicas de nivel 1
     }

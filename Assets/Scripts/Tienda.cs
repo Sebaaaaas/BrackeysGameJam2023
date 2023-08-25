@@ -28,7 +28,8 @@ public class Tienda : MonoBehaviour
 
     [SerializeField] List<ObjetoTienda> objetosTienda;
 
-    int dineroJugador = 100;
+    int dineroJugador = 99;
+    int maxDinero = 99;
 
     private void Start()
     {
@@ -49,6 +50,8 @@ public class Tienda : MonoBehaviour
 
             ++i;
         }
+
+        ActualizaTextosTiendaInventario();
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -109,15 +112,18 @@ public class Tienda : MonoBehaviour
     public void ganaDinero(int cant)
     {
         dineroJugador += cant;
+        if(dineroJugador > maxDinero)
+            dineroJugador = maxDinero;
     }
     public void gastaDinero(int cant)
     {
         dineroJugador -= cant;
-
+        if(dineroJugador < 0)
+            dineroJugador = 0;
     }
     public void compraObjetoTienda(int indexTienda)
     {
-        int costeMonedasObjeto = objetosTienda[indexTienda].monedasPorNivel[Jugador.GetComponent<PlayerController>().nivelesStats_[indexTienda]];
+        int costeMonedasObjeto = objetosTienda[indexTienda].monedasPorNivel[Jugador.GetComponent<PlayerController>().nivelesStats_[indexTienda]-1];
 
         //si se tiene dinero suficiente
         if (dineroJugador >= costeMonedasObjeto)
@@ -147,9 +153,17 @@ public class Tienda : MonoBehaviour
         {
             //texto cantidad de monedas requeridas tienda
             int nivelActualObjeto = Jugador.GetComponent<PlayerController>().nivelesStats_[i];
+
+            if(Jugador.GetComponent<PlayerController>().nivelesStats_[i] == Jugador.GetComponent<PlayerController>().maxLvl)
+            {
+                hijo.Find("Dinero").Find("TextoDinero").GetComponent<Text>().text = "max";
+            }
+            else
+            {
+                string costeAux = dineroJugador + "/" + objetosTienda[i].monedasPorNivel[nivelActualObjeto - 1].ToString();
             
-            string costeAux = dineroJugador + "/" + objetosTienda[i].monedasPorNivel[nivelActualObjeto - 1].ToString();
-            hijo.Find("Dinero").Find("TextoDinero").GetComponent<Text>().text = costeAux;
+                hijo.Find("Dinero").Find("TextoDinero").GetComponent<Text>().text = costeAux;
+            }
             ++i;
         }
 
