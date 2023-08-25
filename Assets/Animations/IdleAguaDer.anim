@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle
+  m_Name: IdleAguaDer
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -20,16 +20,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 57971387, guid: a3c7afd3fb7733b408797c9396d2abce, type: 3}
-    - time: 0.33333334
-      value: {fileID: 235779315, guid: a3c7afd3fb7733b408797c9396d2abce, type: 3}
-    - time: 0.6666667
-      value: {fileID: 57971387, guid: a3c7afd3fb7733b408797c9396d2abce, type: 3}
+      value: {fileID: 2112125519, guid: c04bb291d5625ae4f97dffb9cd1c09fe, type: 3}
+    - time: 0.5
+      value: {fileID: -1453921763, guid: c04bb291d5625ae4f97dffb9cd1c09fe, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 2
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -45,15 +43,14 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
     pptrCurveMapping:
-    - {fileID: 57971387, guid: a3c7afd3fb7733b408797c9396d2abce, type: 3}
-    - {fileID: 235779315, guid: a3c7afd3fb7733b408797c9396d2abce, type: 3}
-    - {fileID: 57971387, guid: a3c7afd3fb7733b408797c9396d2abce, type: 3}
+    - {fileID: 2112125519, guid: c04bb291d5625ae4f97dffb9cd1c09fe, type: 3}
+    - {fileID: -1453921763, guid: c04bb291d5625ae4f97dffb9cd1c09fe, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.75
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

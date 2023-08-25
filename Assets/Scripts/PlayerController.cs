@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject panelInventario;
 
+    [Header("Animaciones")]
+    private Animator animator;
+
+
     #region StatsJugador
 
     public int[] nivelesStats_;
@@ -70,6 +74,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         EstadoActual = EstadosJugador.Nadando;
 
         temporizador = GetComponent<Temporizador>();
@@ -96,6 +101,8 @@ public class PlayerController : MonoBehaviour
         if (nadando && Input.GetKeyDown(keyCodeSHOOT) && Time.time - tiempoEntreDisparos > tiempoUltimoDisparo)
             Shoot();
 
+        animator.SetFloat("Direccion", direccion.x);
+
         if (Input.GetKey(keyCodeABRIRINVENTARIO))
             panelInventario.SetActive(true);
         else if(Input.GetKeyUp(keyCodeABRIRINVENTARIO))
@@ -111,6 +118,7 @@ public class PlayerController : MonoBehaviour
             if(rb2d.velocity.magnitude > maxVel)
                 rb2d.velocity = rb2d.velocity.normalized * maxVel;
         }
+        animator.SetFloat("Horizontal", Math.Abs(rb2d.velocity.x));
     }
     public void setNadando(bool nadando_)
     {
