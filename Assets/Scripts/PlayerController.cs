@@ -66,7 +66,9 @@ public class PlayerController : MonoBehaviour
     #endregion Controles
 
     Temporizador temporizador;
-
+    [SerializeField] GameObject zonaOscura;
+    SpriteRenderer zonaOscuraRenderer;
+    public float comienzoOscuridad, maxOscuridad;
     private void Awake()
     {
         nivelesStats_ = new int[4] { 1, 1, 1, 1 };
@@ -80,6 +82,8 @@ public class PlayerController : MonoBehaviour
         temporizador = GetComponent<Temporizador>();
 
         actualizaStatsJugador(); //ponemos las stats basicas de nivel 1
+
+        zonaOscuraRenderer = zonaOscura.GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
@@ -108,7 +112,22 @@ public class PlayerController : MonoBehaviour
         else if(Input.GetKeyUp(keyCodeABRIRINVENTARIO))
             panelInventario.SetActive(false);
 
+        //manejamos la oscuridad alrededor del jugador
+        Color tmp = zonaOscuraRenderer.color;
 
+        if (transform.position.y > comienzoOscuridad)
+            tmp.a = 0f;
+        else if (transform.position.y < maxOscuridad)
+            tmp.a = 255f;
+        else
+        {
+            //calculamos porcentaje de la zona que llevamos
+            float prcnt = ((transform.position.y - comienzoOscuridad) * 100) / (maxOscuridad - comienzoOscuridad);
+            
+            tmp.a = (prcnt / 100);
+        }
+
+        zonaOscuraRenderer.color = tmp;
     }
     private void FixedUpdate()
     {
