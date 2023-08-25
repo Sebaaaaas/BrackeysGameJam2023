@@ -178,7 +178,6 @@ public class PlayerController : MonoBehaviour
         temporizador.timeText.gameObject.SetActive(true);
         reseteaTemporizador();
     }
-
     private void reseteaTemporizador()
     {
         temporizador.setTime(tiempoOxigenoTanque);
@@ -187,5 +186,10 @@ public class PlayerController : MonoBehaviour
     {
         temporizador.timeText.gameObject.SetActive(false);
 
+    }
+    private void muereJugador()
+    {
+        reseteaTemporizador();
+        //coloca al jugador donde corresponde
     }
 }
