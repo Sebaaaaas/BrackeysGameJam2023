@@ -28,7 +28,7 @@ public class Tienda : MonoBehaviour
 
     [SerializeField] List<ObjetoTienda> objetosTienda;
 
-    int dineroJugador = 99;
+    int dineroJugador = 50;
     int maxDinero = 99;
 
     private void Start()
@@ -114,6 +114,7 @@ public class Tienda : MonoBehaviour
         dineroJugador += cant;
         if(dineroJugador > maxDinero)
             dineroJugador = maxDinero;
+        actualizaTextosInventario();
     }
     public void gastaDinero(int cant)
     {
@@ -168,12 +169,17 @@ public class Tienda : MonoBehaviour
         }
 
         //INVENTARIO JUGADOR
+        actualizaTextosInventario();
+        
+    }
 
+    private void actualizaTextosInventario()
+    {
         //monedas
         panelInventarioJugador.transform.Find("ImagenDinero").Find("CantidadDinero").gameObject.GetComponent<Text>().text = dineroJugador.ToString();
 
         Transform padreObjetosMejorablesJugador = panelInventarioJugador.transform.Find("ObjetosMejorables");
-        i = 0;
+        int i = 0;
         foreach (Transform hijo in padreObjetosMejorablesJugador)
         {
             hijo.Find("NivelObjeto").Find("TextoNivelObjeto").GetComponent<Text>().text = "Lvl " + Jugador.GetComponent<PlayerController>().nivelesStats_[i];

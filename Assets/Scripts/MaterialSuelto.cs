@@ -6,7 +6,7 @@ public class MaterialSuelto : MonoBehaviour
 {
     //[SerializeField] Tienda.nomMat tipoMat;
     GameObject tienda;
-    int valorMonetario = 10;
+    public int valorMonetario = 10;
     private void Start()
     {
         tienda = GameManager.instance.getTienda();

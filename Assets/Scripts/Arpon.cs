@@ -23,9 +23,7 @@ public class Arpon : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Enemigo>()){
-            Debug.Log("doink");
-
-            collision.GetComponent<Enemigo>().RecibeDanio(3);
+            collision.GetComponent<Enemigo>().RecibeDanio(1);
         }
     }
 }
