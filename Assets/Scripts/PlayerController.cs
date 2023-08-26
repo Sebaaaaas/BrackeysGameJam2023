@@ -223,13 +223,15 @@ public class PlayerController : MonoBehaviour
     {
         panelDerrota.SetActive(true);
         transform.position = spawnpointJugador.transform.position;
-
+        gameObject.SetActive(false);
     }
     public void reseteaJugador()
     {
         reseteaTemporizador();
         //coloca al jugador donde corresponde
         panelDerrota.SetActive(false);
+        gameObject.SetActive(true);
+
     }
     public void jugadorGana()
     {
