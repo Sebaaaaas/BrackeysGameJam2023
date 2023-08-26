@@ -22,10 +22,10 @@ public class Arpon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<ControladorEnemigo>()){
+        if (collision.GetComponent<Enemigo>()){
             Debug.Log("doink");
 
-            collision.GetComponent<ControladorEnemigo>().RecibeDanio();
+            collision.GetComponent<Enemigo>().RecibeDanio(3);
         }
     }
 }

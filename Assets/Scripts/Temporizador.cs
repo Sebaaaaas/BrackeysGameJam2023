@@ -44,4 +44,8 @@ public class Temporizador : MonoBehaviour
     {
         timeRemaining = newTime;
     }
+    public void reduceTime(float amount)
+    {
+        timeRemaining -= amount;
+    }
 }

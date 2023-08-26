@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
         reseteaTemporizador();
         temporizador.pauseTimer(false);
     }
-    private void reseteaTemporizador()
+    public void reseteaTemporizador()
     {
         temporizador.setTime(tiempoOxigenoTanque);
     }
@@ -215,6 +215,10 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion Temporizador
+    public void pierdeOxigeno(float cantidad)
+    {
+        temporizador.reduceTime(cantidad);
+    }
     public void muereJugador()
     {
         panelDerrota.SetActive(true);
