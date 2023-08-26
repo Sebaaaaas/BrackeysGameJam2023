@@ -218,6 +218,7 @@ public class PlayerController : MonoBehaviour
     public void pierdeOxigeno(float cantidad)
     {
         temporizador.reduceTime(cantidad);
+        Debug.Log("au");
     }
     public void muereJugador()
     {
