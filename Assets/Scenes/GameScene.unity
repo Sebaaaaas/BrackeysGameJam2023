@@ -63262,7 +63262,7 @@ MonoBehaviour:
   velocity: 2
   height: 5
   broad: 3
-  maxVel: 5
+  maxVel: 2
 --- !u!50 &1085083455
 Rigidbody2D:
   serializedVersion: 4
@@ -64658,7 +64658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1507738140
 Transform:
   m_ObjectHideFlags: 0

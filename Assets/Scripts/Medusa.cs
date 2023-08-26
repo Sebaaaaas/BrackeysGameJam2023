@@ -44,7 +44,7 @@ public class Medusa : MonoBehaviour
             rb2d.velocity = Vector2.zero;
             up = false;
         }
-        else if (!up && (myTranform.position.y <= initPosition.y))
+        else if (!up && (myTranform.position.y < initPosition.y))
         {
             direction.y = 1;
             rb2d.velocity = Vector2.zero;
@@ -58,5 +58,15 @@ public class Medusa : MonoBehaviour
 
         //if (rb2d.velocity.magnitude > maxVel)
         //    rb2d.velocity = rb2d.velocity.normalized * maxVel;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 }
