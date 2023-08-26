@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static Tienda;
 
 public class PlayerController : MonoBehaviour
@@ -46,6 +47,11 @@ public class PlayerController : MonoBehaviour
 
     Vector2 direccion;
     public float maxVel = 5.0f;
+   
+    Temporizador temporizador;
+    [SerializeField] GameObject zonaOscura;
+    SpriteRenderer zonaOscuraRenderer;
+    public float comienzoOscuridad, maxOscuridad;
     #endregion VariablesNadar
 
     #region Arpon
@@ -65,10 +71,9 @@ public class PlayerController : MonoBehaviour
 
     #endregion Controles
 
-    Temporizador temporizador;
-    [SerializeField] GameObject zonaOscura;
-    SpriteRenderer zonaOscuraRenderer;
-    public float comienzoOscuridad, maxOscuridad;
+    [SerializeField] GameObject spawnpointJugador;
+    [SerializeField] GameObject panelDerrota;
+
     private void Awake()
     {
         nivelesStats_ = new int[4] { 1, 1, 1, 1 };
@@ -80,6 +85,7 @@ public class PlayerController : MonoBehaviour
         EstadoActual = EstadosJugador.Nadando;
 
         temporizador = GetComponent<Temporizador>();
+        //temporizador.setTime(tiempoOxigenoTanque);
 
         actualizaStatsJugador(); //ponemos las stats basicas de nivel 1
 
@@ -155,7 +161,6 @@ public class PlayerController : MonoBehaviour
         GameObject arponAux = Instantiate(arpon, transform);
         arponAux.transform.rotation = Quaternion.Euler(0,0,rotZ);
     }
-
     public void cambiaEstado(EstadosJugador nuevoEstado)
     {
         EstadoActual = nuevoEstado;
@@ -182,7 +187,6 @@ public class PlayerController : MonoBehaviour
         nivelesStats_[objetoAMejorar]++;
         actualizaStatsJugador();
     }
-
     private void actualizaStatsJugador()
     {
         tiempoOxigenoTanque = stats[0].nivelesStats[nivelesStats_[0]-1]; //el tiempo que dura el oxigeno es = a las stats[0]
@@ -192,10 +196,12 @@ public class PlayerController : MonoBehaviour
         velocidad = stats[3].nivelesStats[nivelesStats_[3] - 1];
     }
 
+    #region Temporizador
     private void activaTemporizador()
     {
         temporizador.timeText.gameObject.SetActive(true);
         reseteaTemporizador();
+        temporizador.pauseTimer(false);
     }
     private void reseteaTemporizador()
     {
@@ -204,11 +210,25 @@ public class PlayerController : MonoBehaviour
     private void desactivaTemporizador()
     {
         temporizador.timeText.gameObject.SetActive(false);
+        temporizador.pauseTimer(true);
 
     }
-    private void muereJugador()
+
+    #endregion Temporizador
+    public void muereJugador()
+    {
+        panelDerrota.SetActive(true);
+        transform.position = spawnpointJugador.transform.position;
+
+    }
+    public void reseteaJugador()
     {
         reseteaTemporizador();
         //coloca al jugador donde corresponde
+        panelDerrota.SetActive(false);
+    }
+    public void jugadorGana()
+    {
+        SceneManager.LoadScene("WinScreen");
     }
 }
