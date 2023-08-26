@@ -60,12 +60,12 @@ public class Medusa : MonoBehaviour
         //    rb2d.velocity = rb2d.velocity.normalized * maxVel;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         transform.GetChild(0).gameObject.SetActive(true);
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         transform.GetChild(0).gameObject.SetActive(false);
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemigoAlmeja : MonoBehaviour
 {
     float distanciaMordisco = 2.0f;
-    public bool muerde = false;
+    bool muerde = false;
 
     GameObject Jugador;
 
