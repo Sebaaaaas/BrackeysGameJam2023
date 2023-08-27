@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject Tienda;
     [SerializeField] GameObject Jugador;
+    [SerializeField] GameObject Canvas;
 
     void Awake()
     {
@@ -34,6 +35,11 @@ public class GameManager : MonoBehaviour
     public GameObject getJugador()
     {
         return Jugador;
+    }
+
+    public GameObject getCanvas()
+    {
+        return Canvas;
     }
 
 }

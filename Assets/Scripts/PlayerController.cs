@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject spawnpointJugador;
     [SerializeField] GameObject panelDerrota;
+    [SerializeField] GameObject zonaLuz;
 
     private void Awake()
     {
@@ -194,6 +195,8 @@ public class PlayerController : MonoBehaviour
         danioArpon = stats[1].nivelesStats[nivelesStats_[1]-1];
         potenciaLinterna = stats[2].nivelesStats[nivelesStats_[2] - 1];
         velocidad = stats[3].nivelesStats[nivelesStats_[3] - 1];
+
+        mejoraLinterna(); //cambia stats linterna aqui, a lo sucio
     }
 
     #region Temporizador
@@ -218,7 +221,6 @@ public class PlayerController : MonoBehaviour
     public void pierdeOxigeno(float cantidad)
     {
         temporizador.reduceTime(cantidad);
-        Debug.Log("au");
     }
     public void muereJugador()
     {
@@ -237,5 +239,15 @@ public class PlayerController : MonoBehaviour
     public void jugadorGana()
     {
         SceneManager.LoadScene("WinScreen");
+    }
+    public float getDanioArpon()
+    {
+        return danioArpon;
+
+    }
+
+    private void mejoraLinterna()
+    {
+        zonaLuz.transform.localScale = new Vector3(potenciaLinterna/10, potenciaLinterna/10, 1);
     }
 }

@@ -9,10 +9,12 @@ public class Arpon : MonoBehaviour
     public float velocidad;
     float tiempoCreacion;
 
+    GameObject jugador;
     private void Start()
     {
         tiempoCreacion = Time.time;
         GetComponent<Rigidbody2D>().AddForce(transform.right * velocidad);
+        jugador = GameManager.instance.getJugador();
     }
     private void Update()
     {
@@ -23,7 +25,8 @@ public class Arpon : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Enemigo>()){
-            collision.GetComponent<Enemigo>().RecibeDanio(1);
+            int i = (int)(jugador.GetComponent<PlayerController>().getDanioArpon());
+            collision.GetComponent<Enemigo>().RecibeDanio(i);
         }
     }
 }
