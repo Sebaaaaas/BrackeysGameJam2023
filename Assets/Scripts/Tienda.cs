@@ -28,7 +28,7 @@ public class Tienda : MonoBehaviour
 
     [SerializeField] List<ObjetoTienda> objetosTienda;
 
-    int dineroJugador = 50;
+    int dineroJugador = 10;
     int maxDinero = 99;
 
     private void Start()

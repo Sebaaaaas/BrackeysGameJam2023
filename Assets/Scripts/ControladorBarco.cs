@@ -31,6 +31,8 @@ public class ControladorBarco : MonoBehaviour
     [SerializeField] GameObject camaraNadar;
     [SerializeField] GameObject camaraBarco;
 
+    public float minIz, maxDer;
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -55,6 +57,11 @@ public class ControladorBarco : MonoBehaviour
                 SubirJugadorABarco();
             else if (jugadorEnBarco)
                 BajarJugadorDeBarco();
+
+        if(transform.position.x < minIz)
+            transform.position = new Vector2(minIz, transform.position.y);
+        else if(transform.position.x > maxDer)
+            transform.position = new Vector2(maxDer, transform.position.y);
 
     } 
 
