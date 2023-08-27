@@ -75,6 +75,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject panelDerrota;
     [SerializeField] GameObject zonaLuz;
 
+    bool immune = false;
+    public SpriteRenderer jugadorSpriteRenderer;
+    public int flickerAmnt;
+    public float flickerDuration;
+
     private void Awake()
     {
         nivelesStats_ = new int[4] { 1, 1, 1, 1 };
@@ -91,6 +96,7 @@ public class PlayerController : MonoBehaviour
         actualizaStatsJugador(); //ponemos las stats basicas de nivel 1
 
         zonaOscuraRenderer = zonaOscura.GetComponent<SpriteRenderer>();
+        jugadorSpriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
@@ -220,7 +226,27 @@ public class PlayerController : MonoBehaviour
     #endregion Temporizador
     public void pierdeOxigeno(float cantidad)
     {
-        temporizador.reduceTime(cantidad);
+        if (!immune)
+        {
+            temporizador.reduceTime(cantidad);
+            StartCoroutine(DamageFlicker());
+        }
+    }
+
+    IEnumerator DamageFlicker()
+    {
+        immune = true;
+        Debug.Log("ow!");
+
+        for (int i = 0; i < flickerAmnt; ++i)
+        {
+            jugadorSpriteRenderer.color = new Color(1f, 1f, 1f, .1f);
+            yield return new WaitForSeconds(flickerDuration);
+            jugadorSpriteRenderer.color = Color.white;
+            yield return new WaitForSeconds(flickerDuration);
+        }
+        
+        immune = false;
     }
     public void muereJugador()
     {
@@ -234,6 +260,8 @@ public class PlayerController : MonoBehaviour
         //coloca al jugador donde corresponde
         panelDerrota.SetActive(false);
         gameObject.SetActive(true);
+        jugadorSpriteRenderer.color = Color.white;
+
 
     }
     public void jugadorGana()
