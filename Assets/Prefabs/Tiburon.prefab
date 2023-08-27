@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 6
   cantidadAirePerdida: 6
-  materialDrop: {fileID: 2877180641165182772, guid: e404d24c48114f24ba0d6c116e971e03, type: 3}
+  materialDrop: {fileID: 1620322519535630743, guid: 812ba1df8a4cadd479586c31ae56f45a, type: 3}
 --- !u!114 &2129364185659152425
 MonoBehaviour:
   m_ObjectHideFlags: 0
