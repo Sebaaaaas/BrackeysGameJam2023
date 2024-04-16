@@ -1,13 +1,26 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static Tienda;
+
+//Telemetria
+using System.Runtime.InteropServices;
+
+//using testGPT;
+//using Telemetrador;
+using Telemetrador;
+using UnityEngine.Diagnostics;
+
 
 public class PlayerController : MonoBehaviour
 {
+    #region Telemetria
+    [DllImport("Telemetrador.dll")]
+    private static extern int test(int a);
+
+    #endregion Telemetria
+
+    #region Juego
     public enum EstadosJugador { EnBarca, Nadando }
     EstadosJugador EstadoActual;
 
@@ -80,12 +93,19 @@ public class PlayerController : MonoBehaviour
     public int flickerAmnt;
     public float flickerDuration;
 
+    #endregion juego
+
     private void Awake()
     {
         nivelesStats_ = new int[4] { 1, 1, 1, 1 };
     }
     private void Start()
     {
+        //test testUtils = new test();
+        Class1 c = new Class1();
+        c.AddValues(2, 3);
+        print("2 + 3 = " + c.c);
+
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         EstadoActual = EstadosJugador.Nadando;
@@ -97,6 +117,10 @@ public class PlayerController : MonoBehaviour
 
         zonaOscuraRenderer = zonaOscura.GetComponent<SpriteRenderer>();
         jugadorSpriteRenderer = GetComponent<SpriteRenderer>();
+
+
+        //Test telemetria
+        //Debug.Log(test(7));
     }
     private void Update()
     {
