@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 using TelemetradorNamespace;
 
 
@@ -82,6 +83,9 @@ public class PlayerController : MonoBehaviour
     public float flickerDuration;
 
     #endregion juego
+    float timeToSend=0.0f;
+    TelemetradorNamespace.PlayerMovement retrievePos;
+    TelemetradorNamespace.BreathEvent retrieveTime;
 
     private void Awake()
     {
@@ -91,7 +95,8 @@ public class PlayerController : MonoBehaviour
     {
         bool exito = Telemetrador.Inicializacion("myGame"); //NO HACEMOS NADA TODAVIA SI FALLA
         Debug.Log(Telemetrador.Instance().idSesion);
-
+        retrievePos = new TelemetradorNamespace.PlayerMovement();
+        retrieveTime = new TelemetradorNamespace.BreathEvent();
 
 
         rb2d = GetComponent<Rigidbody2D>();
@@ -110,6 +115,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         //reseteamos a 0 por si no pulsa nada
+       
+
         direccion = new Vector2();
 
         if (Input.GetKey(keyCodeUP))
@@ -150,6 +157,17 @@ public class PlayerController : MonoBehaviour
         }
 
         zonaOscuraRenderer.color = tmp;
+
+
+        //envio de posicion
+        timeToSend += Time.deltaTime;
+        
+        if (timeToSend > 2) {
+            Debug.Log(transform.position.x +"\n"+transform.position.y);
+            retrievePos.PlayerPosition(transform.position.x, transform.position.y);
+            timeToSend = 0;
+        }
+
     }
     private void FixedUpdate()
     {
@@ -223,6 +241,12 @@ public class PlayerController : MonoBehaviour
     }
     public void reseteaTemporizador()
     {
+        float time = temporizador.getTime();
+        float minutes = Mathf.FloorToInt(time / 60);
+        float seconds = Mathf.FloorToInt(time % 60);
+        float milliSeconds = (time % 1) * 1000;
+        Debug.Log(minutes + " " + seconds + " " + milliSeconds);
+        retrieveTime.PlayerBreathes(minutes, seconds, milliSeconds);
         temporizador.setTime(tiempoOxigenoTanque);
     }
     private void desactivaTemporizador()

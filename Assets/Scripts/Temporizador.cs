@@ -48,4 +48,9 @@ public class Temporizador : MonoBehaviour
     {
         timeRemaining -= amount;
     }
+
+    public float getTime()
+    {
+        return timeRemaining;
+    }
 }
