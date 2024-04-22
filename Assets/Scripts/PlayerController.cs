@@ -84,8 +84,6 @@ public class PlayerController : MonoBehaviour
 
     #endregion juego
     float timeToSend=0.0f;
-    TelemetradorNamespace.PlayerMovement retrievePos;
-    TelemetradorNamespace.BreathEvent retrieveTime;
 
     private void Awake()
     {
@@ -93,10 +91,11 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        bool exito = Telemetrador.Inicializacion("myGame"); //NO HACEMOS NADA TODAVIA SI FALLA
+        if (Telemetrador.Init())
+        {
+            Telemetrador.Instance().startSession(Time.time, "myGame");
+        }
         Debug.Log(Telemetrador.Instance().idSesion);
-        retrievePos = new TelemetradorNamespace.PlayerMovement();
-        retrieveTime = new TelemetradorNamespace.BreathEvent();
 
 
         rb2d = GetComponent<Rigidbody2D>();
@@ -164,7 +163,9 @@ public class PlayerController : MonoBehaviour
         
         if (timeToSend > 2) {
             Debug.Log(transform.position.x +"\n"+transform.position.y);
-            retrievePos.PlayerPosition(transform.position.x, transform.position.y);
+            Telemetrador.Instance().addEvent(new PlayerMovement(Time.time, transform.position.x, transform.position.y));
+            if(direccion.y==1) Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, true));
+            else Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, false));
             timeToSend = 0;
         }
 
@@ -246,7 +247,7 @@ public class PlayerController : MonoBehaviour
         float seconds = Mathf.FloorToInt(time % 60);
         float milliSeconds = (time % 1) * 1000;
         Debug.Log(minutes + " " + seconds + " " + milliSeconds);
-        retrieveTime.PlayerBreathes(minutes, seconds, milliSeconds);
+        Telemetrador.Instance().addEvent(new PLayerBreath(Time.time));
         temporizador.setTime(tiempoOxigenoTanque);
     }
     private void desactivaTemporizador()
