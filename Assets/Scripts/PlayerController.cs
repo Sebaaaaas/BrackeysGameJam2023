@@ -91,14 +91,6 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        if (Telemetrador.Init(Formatos.JSON,"prueba",Medio.Archivo))
-        {
-            Debug.Log("Iniciado");
-            Telemetrador.Instance().startSession(Time.time, "myGame");
-        }
-        Debug.Log(Telemetrador.Instance().idSesion);
-
-
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         EstadoActual = EstadosJugador.Nadando;

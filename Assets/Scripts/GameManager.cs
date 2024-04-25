@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TelemetradorNamespace;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -21,6 +22,13 @@ public class GameManager : MonoBehaviour
         //    Destroy(gameObject);
 
         //DontDestroyOnLoad(gameObject);
+
+        if (Telemetrador.Init(Formatos.JSON, "prueba", Medio.Archivo))
+        {
+            Debug.Log("Iniciado");
+            Telemetrador.Instance().startSession(Time.time, "myGame");
+        }
+        Debug.Log(Telemetrador.Instance().idSesion);
     }
     private void Start()
     {
