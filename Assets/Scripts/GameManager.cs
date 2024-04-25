@@ -42,6 +42,10 @@ public class GameManager : MonoBehaviour
         Telemetrador.Instance().Update(Time.deltaTime);
     }
 
+    private void OnApplicationQuit() {
+        Telemetrador.Instance().endSession(Time.time,false);
+    }
+
     public GameObject getTienda()
     {
         return Tienda;

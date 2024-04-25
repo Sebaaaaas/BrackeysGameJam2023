@@ -1,5 +1,13 @@
 {"datos":[
 {
+  "name": "Start",
   "timestamp": "0",
   "gameName": "myGame"
+}{
+  "name": "Respira",
+  "timestamp": "2"
+}{
+  "name": "Fin",
+  "timestamp": "4,490751",
+  "win": "False"
 }]}
