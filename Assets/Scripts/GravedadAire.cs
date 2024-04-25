@@ -8,17 +8,17 @@ public class GravedadAire : MonoBehaviour
     public float gravedadAire = 3.0f;
     public float gravedadAgua = 0.1f;
     [SerializeField] GameObject jugador;
-    bool inicio = true;
+   // bool inicio = true;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.GetComponent<ControladorBarco>()) //esta feo que se controle asi pero por ahora funciona
         {
             collision.GetComponent<Rigidbody2D>().gravityScale = gravedadAire;
-            if (!inicio)
-            {
+            //if (!inicio)
+            //{
                 Telemetrador.Instance().addEvent(new PLayerBreath(Time.time));
-            }
-            inicio = false;
+            //}
+            //inicio = false;
         }
 
         jugador.GetComponent<PlayerController>().reseteaTemporizador();

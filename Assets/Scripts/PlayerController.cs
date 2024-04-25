@@ -156,9 +156,9 @@ public class PlayerController : MonoBehaviour
         
         if (timeToSend > 2) {
             Debug.Log(transform.position.x +"\n"+transform.position.y);
-            //Telemetrador.Instance().addEvent(new PlayerMovement(Time.time, transform.position.x, transform.position.y));
-            //if(direccion.y==1) Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, true));
-            //else Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, false));
+            Telemetrador.Instance().addEvent(new PlayerMovement(Time.time, transform.position.x, transform.position.y));
+            if(direccion.y==1) Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, true));
+            else Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, false));
             timeToSend = 0;
         }
 
@@ -278,7 +278,7 @@ public class PlayerController : MonoBehaviour
     {
         panelDerrota.SetActive(true);
         transform.position = spawnpointJugador.transform.position;
-        //Telemetrador.Instance().endSession(Time.time, false);
+        Telemetrador.Instance().endSession(Time.time, false);
 
         gameObject.SetActive(false);
     }

@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void OnApplicationQuit() {
+        
         Telemetrador.Instance().endSession(Time.time,false);
     }
 

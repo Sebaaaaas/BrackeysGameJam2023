@@ -1,13 +1,562 @@
 {"datos":[
 {
-  "name": "Start",
+  "name": "Empiece",
   "timestamp": "0",
   "gameName": "myGame"
-}{
+},{
+  "name": "Movimiento",
+  "timestamp": "1,981589",
+  "playerX": "7,58",
+  "playerY": "-0,9782051"
+},{
+  "name": "Ascenso",
+  "timestamp": "1,981589",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "3,982627",
+  "playerX": "7,58",
+  "playerY": "-1,900846"
+},{
+  "name": "Ascenso",
+  "timestamp": "3,982627",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "5,984556",
+  "playerX": "7,58",
+  "playerY": "-2,87379"
+},{
+  "name": "Ascenso",
+  "timestamp": "5,984556",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "7,98597",
+  "playerX": "7,58",
+  "playerY": "-3,853678"
+},{
+  "name": "Ascenso",
+  "timestamp": "7,98597",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "9,986577",
+  "playerX": "7,574677",
+  "playerY": "-3,953963"
+},{
+  "name": "Ascenso",
+  "timestamp": "9,986577",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "11,98737",
+  "playerX": "7,571618",
+  "playerY": "-3,955237"
+},{
+  "name": "Ascenso",
+  "timestamp": "11,98737",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "13,98896",
+  "playerX": "7,568558",
+  "playerY": "-3,956511"
+},{
+  "name": "Ascenso",
+  "timestamp": "13,98896",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "15,99003",
+  "playerX": "7,565499",
+  "playerY": "-3,957785"
+},{
+  "name": "Ascenso",
+  "timestamp": "15,99003",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "17,99176",
+  "playerX": "7,562439",
+  "playerY": "-3,959059"
+},{
+  "name": "Ascenso",
+  "timestamp": "17,99176",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "19,99319",
+  "playerX": "7,55938",
+  "playerY": "-3,960333"
+},{
+  "name": "Ascenso",
+  "timestamp": "19,99319",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "21,99338",
+  "playerX": "7,556321",
+  "playerY": "-3,961607"
+},{
+  "name": "Ascenso",
+  "timestamp": "21,99338",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "23,99454",
+  "playerX": "7,553261",
+  "playerY": "-3,962882"
+},{
+  "name": "Ascenso",
+  "timestamp": "23,99454",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "25,99578",
+  "playerX": "7,550202",
+  "playerY": "-3,964156"
+},{
+  "name": "Ascenso",
+  "timestamp": "25,99578",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "27,99669",
+  "playerX": "7,547143",
+  "playerY": "-3,96543"
+},{
+  "name": "Ascenso",
+  "timestamp": "27,99669",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "29,99778",
+  "playerX": "7,544083",
+  "playerY": "-3,966704"
+},{
+  "name": "Ascenso",
+  "timestamp": "29,99778",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "31,99871",
+  "playerX": "7,541024",
+  "playerY": "-3,967978"
+},{
+  "name": "Ascenso",
+  "timestamp": "31,99871",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "34,00031",
+  "playerX": "7,537927",
+  "playerY": "-3,969268"
+},{
+  "name": "Ascenso",
+  "timestamp": "34,00031",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "36,00138",
+  "playerX": "7,534867",
+  "playerY": "-3,970542"
+},{
+  "name": "Ascenso",
+  "timestamp": "36,00138",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "38,00294",
+  "playerX": "7,531808",
+  "playerY": "-3,971816"
+},{
+  "name": "Ascenso",
+  "timestamp": "38,00294",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "40,00383",
+  "playerX": "7,528749",
+  "playerY": "-3,97309"
+},{
+  "name": "Ascenso",
+  "timestamp": "40,00383",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "42,00425",
+  "playerX": "7,525689",
+  "playerY": "-3,974364"
+},{
+  "name": "Ascenso",
+  "timestamp": "42,00425",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "44,00599",
+  "playerX": "7,52263",
+  "playerY": "-3,975638"
+},{
+  "name": "Ascenso",
+  "timestamp": "44,00599",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "46,00643",
+  "playerX": "7,51957",
+  "playerY": "-3,976912"
+},{
+  "name": "Ascenso",
+  "timestamp": "46,00643",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "48,00702",
+  "playerX": "7,516511",
+  "playerY": "-3,978187"
+},{
+  "name": "Ascenso",
+  "timestamp": "48,00702",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "50,00837",
+  "playerX": "7,513452",
+  "playerY": "-3,979461"
+},{
+  "name": "Ascenso",
+  "timestamp": "50,00837",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "52,00921",
+  "playerX": "7,511266",
+  "playerY": "-3,631394"
+},{
+  "name": "Ascenso",
+  "timestamp": "52,00921",
+  "isAscending": "True"
+},{
+  "name": "Movimiento",
+  "timestamp": "54,01059",
+  "playerX": "7,511103",
+  "playerY": "-1,225542"
+},{
+  "name": "Ascenso",
+  "timestamp": "54,01059",
+  "isAscending": "True"
+},{
   "name": "Respira",
-  "timestamp": "2"
-}{
+  "timestamp": "55,54"
+},{
+  "name": "Movimiento",
+  "timestamp": "56,01065",
+  "playerX": "7,511085",
+  "playerY": "0,5467902"
+},{
+  "name": "Ascenso",
+  "timestamp": "56,01065",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "58,01089",
+  "playerX": "6,408111",
+  "playerY": "0,4230447"
+},{
+  "name": "Ascenso",
+  "timestamp": "58,01089",
+  "isAscending": "True"
+},{
+  "name": "Respira",
+  "timestamp": "59,36"
+},{
+  "name": "Movimiento",
+  "timestamp": "60,01193",
+  "playerX": "3,562138",
+  "playerY": "0,7828051"
+},{
+  "name": "Ascenso",
+  "timestamp": "60,01193",
+  "isAscending": "False"
+},{
+  "name": "Respira",
+  "timestamp": "61,74"
+},{
+  "name": "Movimiento",
+  "timestamp": "62,01311",
+  "playerX": "0,4061211",
+  "playerY": "0,8121778"
+},{
+  "name": "Ascenso",
+  "timestamp": "62,01311",
+  "isAscending": "True"
+},{
+  "name": "Movimiento",
+  "timestamp": "64,01351",
+  "playerX": "-2,643267",
+  "playerY": "0,8547648"
+},{
+  "name": "Ascenso",
+  "timestamp": "64,01351",
+  "isAscending": "True"
+},{
+  "name": "Respira",
+  "timestamp": "64,24"
+},{
+  "name": "Respira",
+  "timestamp": "65,18"
+},{
+  "name": "Respira",
+  "timestamp": "65,6"
+},{
+  "name": "Movimiento",
+  "timestamp": "66,01408",
+  "playerX": "-5,52528",
+  "playerY": "0,9333448"
+},{
+  "name": "Ascenso",
+  "timestamp": "66,01408",
+  "isAscending": "True"
+},{
+  "name": "Movimiento",
+  "timestamp": "68,01495",
+  "playerX": "-8,967653",
+  "playerY": "0,5406679"
+},{
+  "name": "Ascenso",
+  "timestamp": "68,01495",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "70,01629",
+  "playerX": "-12,89018",
+  "playerY": "-0,3579213"
+},{
+  "name": "Ascenso",
+  "timestamp": "70,01629",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "72,0164",
+  "playerX": "-16,22294",
+  "playerY": "-2,912588"
+},{
+  "name": "Ascenso",
+  "timestamp": "72,0164",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "74,01749",
+  "playerX": "-19,12099",
+  "playerY": "-6,548818"
+},{
+  "name": "Ascenso",
+  "timestamp": "74,01749",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "76,01872",
+  "playerX": "-21,67552",
+  "playerY": "-9,476517"
+},{
+  "name": "Ascenso",
+  "timestamp": "76,01872",
+  "isAscending": "True"
+},{
+  "name": "Movimiento",
+  "timestamp": "78,02143",
+  "playerX": "-23,94245",
+  "playerY": "-8,250973"
+},{
+  "name": "Ascenso",
+  "timestamp": "78,02143",
+  "isAscending": "True"
+},{
+  "name": "Movimiento",
+  "timestamp": "80,02143",
+  "playerX": "-24,61377",
+  "playerY": "-5,629385"
+},{
+  "name": "Ascenso",
+  "timestamp": "80,02143",
+  "isAscending": "True"
+},{
+  "name": "Movimiento",
+  "timestamp": "82,02164",
+  "playerX": "-24,73012",
+  "playerY": "-2,675057"
+},{
+  "name": "Ascenso",
+  "timestamp": "82,02164",
+  "isAscending": "True"
+},{
+  "name": "Movimiento",
+  "timestamp": "84,02221",
+  "playerX": "-26,55133",
+  "playerY": "-0,4127037"
+},{
+  "name": "Ascenso",
+  "timestamp": "84,02221",
+  "isAscending": "True"
+},{
+  "name": "Respira",
+  "timestamp": "85,5"
+},{
+  "name": "Movimiento",
+  "timestamp": "86,02289",
+  "playerX": "-29,24298",
+  "playerY": "0,8086971"
+},{
+  "name": "Ascenso",
+  "timestamp": "86,02289",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "88,02352",
+  "playerX": "-31,9046",
+  "playerY": "-1,477428"
+},{
+  "name": "Ascenso",
+  "timestamp": "88,02352",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "90,02394",
+  "playerX": "-34,65993",
+  "playerY": "-5,095448"
+},{
+  "name": "Ascenso",
+  "timestamp": "90,02394",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "92,02457",
+  "playerX": "-37,47827",
+  "playerY": "-8,878458"
+},{
+  "name": "Ascenso",
+  "timestamp": "92,02457",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "94,02611",
+  "playerX": "-40,30529",
+  "playerY": "-12,68424"
+},{
+  "name": "Ascenso",
+  "timestamp": "94,02611",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "96,02625",
+  "playerX": "-43,1335",
+  "playerY": "-16,49316"
+},{
+  "name": "Ascenso",
+  "timestamp": "96,02625",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "98,02759",
+  "playerX": "-45,75947",
+  "playerY": "-20,38636"
+},{
+  "name": "Ascenso",
+  "timestamp": "98,02759",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "100,0279",
+  "playerX": "-47,28569",
+  "playerY": "-22,8301"
+},{
+  "name": "Ascenso",
+  "timestamp": "100,0279",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "102,0285",
+  "playerX": "-50,52521",
+  "playerY": "-23,86956"
+},{
+  "name": "Ascenso",
+  "timestamp": "102,0285",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "104,0294",
+  "playerX": "-54,08787",
+  "playerY": "-24,57327"
+},{
+  "name": "Ascenso",
+  "timestamp": "104,0294",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "106,0302",
+  "playerX": "-57,66917",
+  "playerY": "-26,20107"
+},{
+  "name": "Ascenso",
+  "timestamp": "106,0302",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "108,0303",
+  "playerX": "-61,60282",
+  "playerY": "-27,29204"
+},{
+  "name": "Ascenso",
+  "timestamp": "108,0303",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "110,0307",
+  "playerX": "-65,22028",
+  "playerY": "-28,92334"
+},{
+  "name": "Ascenso",
+  "timestamp": "110,0307",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "112,0319",
+  "playerX": "-67,37389",
+  "playerY": "-32,6603"
+},{
+  "name": "Ascenso",
+  "timestamp": "112,0319",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "114,0336",
+  "playerX": "-68,44642",
+  "playerY": "-36,95953"
+},{
+  "name": "Ascenso",
+  "timestamp": "114,0336",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "116,0344",
+  "playerX": "-71,52287",
+  "playerY": "-39,05094"
+},{
+  "name": "Ascenso",
+  "timestamp": "116,0344",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "118,0348",
+  "playerX": "-74,47958",
+  "playerY": "-40,4741"
+},{
+  "name": "Ascenso",
+  "timestamp": "118,0348",
+  "isAscending": "True"
+},{
   "name": "Fin",
-  "timestamp": "4,490751",
+  "timestamp": "119,701",
   "win": "False"
 }]}
