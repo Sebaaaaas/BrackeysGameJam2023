@@ -240,7 +240,7 @@ public class PlayerController : MonoBehaviour
         float seconds = Mathf.FloorToInt(time % 60);
         float milliSeconds = (time % 1) * 1000;
         Debug.Log(minutes + " " + seconds + " " + milliSeconds);
-        //Telemetrador.Instance().addEvent(new PLayerBreath(Time.time));
+        Telemetrador.Instance().addEvent(new PLayerBreath(Time.time));
         temporizador.setTime(tiempoOxigenoTanque);
     }
     private void desactivaTemporizador()
@@ -279,6 +279,8 @@ public class PlayerController : MonoBehaviour
     {
         panelDerrota.SetActive(true);
         transform.position = spawnpointJugador.transform.position;
+        Telemetrador.Instance().endSession(Time.time, false);
+
         gameObject.SetActive(false);
     }
     public void reseteaJugador()

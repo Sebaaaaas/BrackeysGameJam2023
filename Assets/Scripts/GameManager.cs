@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject Jugador;
     [SerializeField] GameObject Canvas;
 
+    float lastTime=0.0f;
+
     void Awake()
     {
         //if (instance == null)
@@ -33,6 +35,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
+    }
+    private void Update()
+    {
+       
+        Telemetrador.Instance().Update(Time.deltaTime);
     }
 
     public GameObject getTienda()
