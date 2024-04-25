@@ -91,8 +91,9 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        if (Telemetrador.Init())
+        if (Telemetrador.Init(Formatos.JSON,"prueba",Medio.Archivo))
         {
+            Debug.Log("Iniciado");
             Telemetrador.Instance().startSession(Time.time, "myGame");
         }
         Debug.Log(Telemetrador.Instance().idSesion);
@@ -163,9 +164,9 @@ public class PlayerController : MonoBehaviour
         
         if (timeToSend > 2) {
             Debug.Log(transform.position.x +"\n"+transform.position.y);
-            Telemetrador.Instance().addEvent(new PlayerMovement(Time.time, transform.position.x, transform.position.y));
-            if(direccion.y==1) Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, true));
-            else Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, false));
+            //Telemetrador.Instance().addEvent(new PlayerMovement(Time.time, transform.position.x, transform.position.y));
+            //if(direccion.y==1) Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, true));
+            //else Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, false));
             timeToSend = 0;
         }
 
@@ -247,7 +248,7 @@ public class PlayerController : MonoBehaviour
         float seconds = Mathf.FloorToInt(time % 60);
         float milliSeconds = (time % 1) * 1000;
         Debug.Log(minutes + " " + seconds + " " + milliSeconds);
-        Telemetrador.Instance().addEvent(new PLayerBreath(Time.time));
+        //Telemetrador.Instance().addEvent(new PLayerBreath(Time.time));
         temporizador.setTime(tiempoOxigenoTanque);
     }
     private void desactivaTemporizador()
