@@ -240,7 +240,8 @@ public class PlayerController : MonoBehaviour
         float seconds = Mathf.FloorToInt(time % 60);
         float milliSeconds = (time % 1) * 1000;
         Debug.Log(minutes + " " + seconds + " " + milliSeconds);
-        temporizador.setTime(tiempoOxigenoTanque);
+        Telemetrador.Instance().addEvent(new PLayerBreath(Time.time, minutes, seconds, milliSeconds));
+       temporizador.setTime(tiempoOxigenoTanque);
     }
     private void desactivaTemporizador()
     {
