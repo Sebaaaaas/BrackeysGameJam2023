@@ -44,7 +44,8 @@ public class GameManager : MonoBehaviour
 
     private void OnApplicationQuit() {
         
-        Telemetrador.Instance().endSession(Time.time,false);
+        //Telemetrador.Instance().endSession(Time.time,false);
+        Telemetrador.Instance().endQuit(Time.time);
     }
 
     public GameObject getTienda()

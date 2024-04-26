@@ -70754,7 +70754,7 @@ MonoBehaviour:
   maxLvl: 3
   stats:
   - nombreStat: tiempoOxigenoTanque
-    nivelesStats: 0a00000078000000b4000000
+    nivelesStats: 3c00000078000000b4000000
   - nombreStat: danioArpon
     nivelesStats: 010000000200000003000000
   - nombreStat: potenciaLinterna

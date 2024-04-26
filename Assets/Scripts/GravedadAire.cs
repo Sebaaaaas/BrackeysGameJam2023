@@ -16,7 +16,13 @@ public class GravedadAire : MonoBehaviour
             collision.GetComponent<Rigidbody2D>().gravityScale = gravedadAire;
             //if (!inicio)
             //{
-                Telemetrador.Instance().addEvent(new PLayerBreath(Time.time));
+            float time = collision.gameObject.GetComponent<Temporizador>().getTime();
+            Debug.Log(time);
+            float minutes = Mathf.FloorToInt(time / 60);
+            float seconds = Mathf.FloorToInt(time % 60);
+            float milliSeconds = (time % 1) * 1000;
+            Debug.Log(minutes + " " + seconds + " " + milliSeconds);
+            Telemetrador.Instance().addEvent(new PLayerBreath(Time.time, minutes, seconds, milliSeconds));
             //}
             //inicio = false;
         }
