@@ -1,40 +1,182 @@
 {"datos":[
 {
-  "name": "Empiece",
+  "name": "Empiece_Partida",
   "timestamp": "0",
   "gameName": "myGame"
 },{
+  "name": "Empiece_Nivel",
+  "timestamp": "1,98898"
+},{
   "name": "Movimiento",
-  "timestamp": "1,9818",
-  "playerX": "7,58",
-  "playerY": "-0,6557132"
+  "timestamp": "3,877148",
+  "playerX": "7,308321",
+  "playerY": "-1,34662"
 },{
   "name": "Ascenso",
-  "timestamp": "1,9818",
+  "timestamp": "3,877148",
+  "isAscending": "True"
+},{
+  "name": "Movimiento",
+  "timestamp": "5,878068",
+  "playerX": "7,088697",
+  "playerY": "-0,8122122"
+},{
+  "name": "Ascenso",
+  "timestamp": "5,878068",
   "isAscending": "True"
 },{
   "name": "Respira",
-  "timestamp": "3,62",
-  "reamainingTime": "0 56 360,939"
+  "timestamp": "7,42",
+  "reamainingTime": "0 54 458,0688"
 },{
   "name": "Movimiento",
-  "timestamp": "3,98367",
-  "playerX": "7,58",
-  "playerY": "0,7679255"
+  "timestamp": "7,879869",
+  "playerX": "7,500354",
+  "playerY": "0,612395"
 },{
   "name": "Ascenso",
-  "timestamp": "3,98367",
+  "timestamp": "7,879869",
   "isAscending": "False"
 },{
   "name": "Movimiento",
-  "timestamp": "5,984781",
-  "playerX": "6,806139",
-  "playerY": "-2,353675"
+  "timestamp": "9,880317",
+  "playerX": "6,211551",
+  "playerY": "-2,515917"
 },{
   "name": "Ascenso",
-  "timestamp": "5,984781",
+  "timestamp": "9,880317",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "11,88213",
+  "playerX": "3,301023",
+  "playerY": "-3,87927"
+},{
+  "name": "Ascenso",
+  "timestamp": "11,88213",
+  "isAscending": "True"
+},{
+  "name": "Movimiento",
+  "timestamp": "13,88262",
+  "playerX": "-0,06272604",
+  "playerY": "-3,740532"
+},{
+  "name": "Ascenso",
+  "timestamp": "13,88262",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "15,88282",
+  "playerX": "-3,97003",
+  "playerY": "-4,555212"
+},{
+  "name": "Ascenso",
+  "timestamp": "15,88282",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "17,88456",
+  "playerX": "-7,87814",
+  "playerY": "-5,662879"
+},{
+  "name": "Ascenso",
+  "timestamp": "17,88456",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "19,88637",
+  "playerX": "-10,60343",
+  "playerY": "-6,483869"
+},{
+  "name": "Ascenso",
+  "timestamp": "19,88637",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "21,88713",
+  "playerX": "-13,18138",
+  "playerY": "-7,410833"
+},{
+  "name": "Ascenso",
+  "timestamp": "21,88713",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "23,88886",
+  "playerX": "-15,6797",
+  "playerY": "-8,670701"
+},{
+  "name": "Ascenso",
+  "timestamp": "23,88886",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "25,89051",
+  "playerX": "-17,99757",
+  "playerY": "-9,47895"
+},{
+  "name": "Ascenso",
+  "timestamp": "25,89051",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "27,89053",
+  "playerX": "-21,17774",
+  "playerY": "-9,47895"
+},{
+  "name": "Ascenso",
+  "timestamp": "27,89053",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "29,89079",
+  "playerX": "-21,91053",
+  "playerY": "-9,47895"
+},{
+  "name": "Ascenso",
+  "timestamp": "29,89079",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "31,89103",
+  "playerX": "-18,93646",
+  "playerY": "-9,47895"
+},{
+  "name": "Ascenso",
+  "timestamp": "31,89103",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "33,8926",
+  "playerX": "-16,87113",
+  "playerY": "-9,47895"
+},{
+  "name": "Ascenso",
+  "timestamp": "33,8926",
+  "isAscending": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "35,89302",
+  "playerX": "-18,86795",
+  "playerY": "-9,47895"
+},{
+  "name": "Ascenso",
+  "timestamp": "35,89302",
+  "isAscending": "False"
+},{
+  "name": "Fin",
+  "timestamp": "37,41924",
+  "win": "False"
+},{
+  "name": "Movimiento",
+  "timestamp": "40,91818",
+  "playerX": "5,397798",
+  "playerY": "-0,07357039"
+},{
+  "name": "Ascenso",
+  "timestamp": "40,91818",
   "isAscending": "False"
 },{
   "name": "Salida_Jugador",
-  "timestamp": "7,143276"
+  "timestamp": "41,32385"
 }]}
