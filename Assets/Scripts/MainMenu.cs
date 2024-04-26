@@ -15,6 +15,10 @@ public class MainMenu : MonoBehaviour
         }
 
     }
+    private void OnApplicationQuit()
+    {
+        Telemetrador.Instance().endQuit(Time.time);
+    }
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
