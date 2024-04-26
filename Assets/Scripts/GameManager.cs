@@ -25,11 +25,12 @@ public class GameManager : MonoBehaviour
 
         //DontDestroyOnLoad(gameObject);
 
-        if (Telemetrador.Init(Formatos.JSON, "prueba", Medio.Archivo))
-        {
-            Debug.Log("Iniciado");
-            Telemetrador.Instance().startSession(Time.time, "myGame");
-        }
+        //if (Telemetrador.Init(Formatos.JSON, "prueba", Medio.Archivo))
+        //{
+        //    Debug.Log("Iniciado");
+        //   Telemetrador.Instance().
+        //}
+        Telemetrador.Instance().addEvent(new LevelStart(Time.time));
         Debug.Log(Telemetrador.Instance().idSesion);
     }
     private void Start()
