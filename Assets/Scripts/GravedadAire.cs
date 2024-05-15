@@ -20,7 +20,7 @@ public class GravedadAire : MonoBehaviour
                 float minutes = Mathf.FloorToInt(time / 60);
                 float seconds = Mathf.FloorToInt(time % 60);
                 float milliSeconds = (time % 1) * 1000;
-                Telemetrador.Instance().addEvent(new PLayerBreath(Time.time, minutes, seconds, milliSeconds));
+                //Telemetrador.Instance().addEvent(new PLayerBreath(Time.time, minutes, seconds, milliSeconds));
             }
             inicio = false;
         }

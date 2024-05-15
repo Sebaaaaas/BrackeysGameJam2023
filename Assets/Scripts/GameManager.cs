@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
         //    Debug.Log("Iniciado");
         //   Telemetrador.Instance().
         //}
-        Telemetrador.Instance().addEvent(new LevelStart(Time.time));
-        Debug.Log(Telemetrador.Instance().idSesion);
+        //Telemetrador.Instance().addEvent(new LevelStart(Time.time));
+        //Debug.Log(Telemetrador.Instance().idSesion);
     }
     private void Start()
     {
@@ -40,13 +40,13 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
        
-        Telemetrador.Instance().Update(Time.deltaTime);
+        //Telemetrador.Instance().Update(Time.deltaTime);
     }
 
     private void OnApplicationQuit() {
         
         //Telemetrador.Instance().endSession(Time.time,false);
-        Telemetrador.Instance().endQuit(Time.time);
+        //Telemetrador.Instance().endQuit(Time.time);
     }
 
     public GameObject getTienda()
