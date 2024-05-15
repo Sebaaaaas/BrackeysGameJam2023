@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-using TelemetradorNamespace;
+//using TelemetradorNamespace;
 
 
 public class PlayerController : MonoBehaviour
@@ -274,7 +274,7 @@ public class PlayerController : MonoBehaviour
     {
         panelDerrota.SetActive(true);
         transform.position = spawnpointJugador.transform.position;
-        Telemetrador.Instance().endSession(Time.time, false);
+        //Telemetrador.Instance().endSession(Time.time, false);
 
         gameObject.SetActive(false);
     }

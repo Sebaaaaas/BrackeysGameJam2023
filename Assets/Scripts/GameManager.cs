@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TelemetradorNamespace;
+//using TelemetradorNamespace;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;

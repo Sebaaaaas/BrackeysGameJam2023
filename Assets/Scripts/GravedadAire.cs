@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TelemetradorNamespace;
+//using TelemetradorNamespace;
 using UnityEngine;
 
 public class GravedadAire : MonoBehaviour

@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TelemetradorNamespace;
+//using TelemetradorNamespace;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,7 +14,7 @@ public class LoseMenu : MonoBehaviour
     {
 
         //Telemetrador.Instance().endSession(Time.time,false);
-        Telemetrador.Instance().endQuit(Time.time);
+        //Telemetrador.Instance().endQuit(Time.time);
     }
 
 }

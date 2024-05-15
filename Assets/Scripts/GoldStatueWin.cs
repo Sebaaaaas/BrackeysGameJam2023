@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TelemetradorNamespace;
+//using TelemetradorNamespace;
 using UnityEngine;
 
 public class GoldStatueWin : MonoBehaviour
@@ -11,7 +11,7 @@ public class GoldStatueWin : MonoBehaviour
         if (collision.GetComponent<PlayerController>() != null)
         {
             collision.GetComponent<PlayerController>().jugadorGana();
-            Telemetrador.Instance().endSession(Time.time, true);
+            //Telemetrador.Instance().endSession(Time.time, true);
         }
     }
 }
