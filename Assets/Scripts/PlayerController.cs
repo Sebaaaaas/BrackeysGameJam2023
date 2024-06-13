@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion juego
     float timeToSend=0.0f;
+    int deaths = 0;
 
     private void Awake()
     {
@@ -272,8 +273,11 @@ public class PlayerController : MonoBehaviour
     }
     public void muereJugador()
     {
+       
         panelDerrota.SetActive(true);
         transform.position = spawnpointJugador.transform.position;
+        deaths++;
+        Telemetrador.Instance().addEvent(new PlayerDeath(Time.time, deaths));
         Telemetrador.Instance().endSession(Time.time, false);
 
         gameObject.SetActive(false);
