@@ -278,7 +278,7 @@ public class PlayerController : MonoBehaviour
         transform.position = spawnpointJugador.transform.position;
         deaths++;
         Telemetrador.Instance().addEvent(new PlayerDeath(Time.time, deaths));
-        Telemetrador.Instance().endSession(Time.time, false);
+        Telemetrador.Instance().endSession(Time.time, false,0,0,0);
 
         gameObject.SetActive(false);
     }
