@@ -169,8 +169,8 @@ public class PlayerController : MonoBehaviour
             //Debug.Log(transform.position.x +"\n"+transform.position.y);
 
             Telemetrador.Instance().addEvent(new PlayerMovement(Time.time, transform.position.x, transform.position.y));
-            if(direccion.y==1) Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, true));
-            else Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, false));
+            //if(direccion.y==1) Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, true));
+            //else Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, false));
             timeToSend = 0;
         }
 
@@ -250,6 +250,7 @@ public class PlayerController : MonoBehaviour
         float tiempoSubida = Time.time - ascensionStartTime;
         float auxTime2 = temporizador.getTime() + tiempoSubida;
         Debug.Log("Inicio ascension: " + auxTime2 + "\nTiempo desde que se comienza ascension hasta momento actual: " + tiempoSubida);
+        Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, auxTime2, false));
         resetAnalysis();
 
         temporizador.setTime(tiempoOxigenoTanque);
@@ -295,6 +296,7 @@ public class PlayerController : MonoBehaviour
         float tiempoSubida = Time.time - ascensionStartTime;
         float auxTime2 = temporizador.getTime() + tiempoSubida;
         Debug.Log("Inicio ascension: " + ascensionStartTime + "\nTiempo desde que se comienza ascension hasta muerte: " + tiempoSubida);
+        Telemetrador.Instance().addEvent(new PlayerAscension(Time.time, auxTime2, true));
         resetAnalysis();
 
 
