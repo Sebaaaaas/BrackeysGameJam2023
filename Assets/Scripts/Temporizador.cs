@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Temporizador : MonoBehaviour
 {
-    float timeRemaining = 10;
+    float timeRemaining = 60;
     bool paused = false;
     public TextMeshProUGUI timeText;
 

@@ -83,9 +83,20 @@ public class PlayerController : MonoBehaviour
     public float flickerDuration;
 
     #endregion juego
+
     float timeToSend=0.0f;
     int deaths = 0;
 
+    //analisis momento subida oxigeno
+    #region ascensionEvent
+
+    float timeToStartAnalysis = 5.0f, timeToStartAnalysisAux = 5.0f; //tiempo, en segundos, a partir del cual contaremos si el jugador empieza a ascender. Si empieza a ascender antes de x segundos,
+                                       //no enviaremos evento al Telemetrador
+    float ascensionStartTime = -1.0f; //cuando empiece a subir, pondremos el momento en el que empezó. Cuando no esté ascendiendo tomara el valor -1
+    float bufferAscensionTime = 2.0f, bufferAscensionTimeAux = 2.0f; //si está subiendo pero deja de subir, dejamos un margen de x segundos para que continue subiendo antes de resetear el contador ascensionStartTime                                      
+    bool ascensionAnalysis = false; //si estamos actualmente analizando el momento
+
+    #endregion ascensionEvent
     private void Awake()
     {
         nivelesStats_ = new int[4] { 1, 1, 1, 1 };
@@ -107,8 +118,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        //reseteamos a 0 por si no pulsa nada
-       
+        ascensionAnalysisFunction();
 
         direccion = new Vector2();
 
@@ -237,8 +247,16 @@ public class PlayerController : MonoBehaviour
     }
     public void reseteaTemporizador()
     {
-        
-       temporizador.setTime(tiempoOxigenoTanque);
+        float tiempoSubida = Time.time - ascensionStartTime;
+        float auxTime2 = temporizador.getTime() + tiempoSubida;
+        Debug.Log("Inicio ascension: " + auxTime2 + "\nTiempo desde que se comienza ascension hasta momento actual: " + tiempoSubida);
+        resetAnalysis();
+
+        temporizador.setTime(tiempoOxigenoTanque);
+
+
+
+        temporizador.setTime(tiempoOxigenoTanque);
     }
     private void desactivaTemporizador()
     {
@@ -274,7 +292,12 @@ public class PlayerController : MonoBehaviour
     }
     public void muereJugador()
     {
-       
+        float tiempoSubida = Time.time - ascensionStartTime;
+        float auxTime2 = temporizador.getTime() + tiempoSubida;
+        Debug.Log("Inicio ascension: " + ascensionStartTime + "\nTiempo desde que se comienza ascension hasta muerte: " + tiempoSubida);
+        resetAnalysis();
+
+
         panelDerrota.SetActive(true);
         transform.position = spawnpointJugador.transform.position;
         deaths++;
@@ -291,7 +314,6 @@ public class PlayerController : MonoBehaviour
         gameObject.SetActive(true);
         jugadorSpriteRenderer.color = Color.white;
 
-
     }
     public void jugadorGana()
     {
@@ -306,5 +328,49 @@ public class PlayerController : MonoBehaviour
     private void mejoraLinterna()
     {
         zonaLuz.transform.localScale = new Vector3(potenciaLinterna/10, potenciaLinterna/10, 1);
+    }
+
+    private void ascensionAnalysisFunction()
+    {
+
+        if (EstadoActual == EstadosJugador.Nadando)
+        {
+            timeToStartAnalysisAux -= Time.deltaTime;
+        }
+
+        if (timeToStartAnalysisAux <= 0)
+        {
+            if (Input.GetKey(keyCodeUP))
+            {
+                bufferAscensionTimeAux = bufferAscensionTime;
+                if (!ascensionAnalysis) //jugador pulsa up mientras estamos en modo analisis del ascension
+                {
+                    ascensionAnalysis = true;
+                    ascensionStartTime = Time.time;
+                    Debug.Log("Ascension analysis comenzado");
+                }
+
+            }
+            else
+            {
+                //comienza contador bufferAscension
+                bufferAscensionTimeAux -= Time.deltaTime;
+
+                if (ascensionAnalysis && bufferAscensionTimeAux <= 0)
+                {
+                    ascensionAnalysis = false;
+                    ascensionStartTime = -1.0f;
+                    Debug.Log("Resetting ascension time");
+                }
+            }
+        }
+
+        
+    }
+    private void resetAnalysis() {
+        ascensionStartTime = Time.time;
+        timeToStartAnalysisAux = timeToStartAnalysis;
+        bufferAscensionTimeAux = bufferAscensionTime;
+        ascensionAnalysis = false;
     }
 }
